@@ -7,6 +7,7 @@ module.exports = {
   rules: {
     'import/prefer-default-export': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-unused-vars': 'off',
     indent: [
       'error',
       2,
