@@ -3,7 +3,7 @@
 	"name": "Ito-ocashi-review",
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "node",
-	"workspaceFolder": "/ito-ocashi-review",
+	"workspaceFolder": "/Ito-ocashi-review",
 
 	"settings": {
 		"terminal.integrated.shell.linux": "/bin/bash"
