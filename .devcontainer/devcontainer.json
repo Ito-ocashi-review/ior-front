@@ -1,0 +1,22 @@
+
+{
+	"name": "Ito-ocashi-review",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "node",
+	"workspaceFolder": "/ito-ocashi-review",
+
+	"settings": {
+		"terminal.integrated.shell.linux": "/bin/bash"
+	},
+
+	"extensions": [
+		"dbaeumer.vscode-eslint",
+		"eamodio.gitlens",
+		"editorconfig.editorconfig",
+		"esbenp.prettier-vscode",
+		"shinnn.stylelint",
+		"hex-ci.stylelint-plus"
+	],
+
+	"remoteUser": "node"
+}
