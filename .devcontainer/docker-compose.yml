@@ -1,0 +1,23 @@
+# Use root/example as user/password credentials
+version: '3.1'
+services:
+    mongo:
+        image: mongo
+        restart: always
+        ports:
+          - 27017:27017
+          
+    node:
+      user: node
+      build:
+        context: .
+        dockerfile: Dockerfile
+      ports:
+        - 3000:3000
+      volumes:
+        - .:/ito-ocashi-review:cached
+        - /ito-ocashi-review/node_modules
+        - /ito-ocashi-review/.next
+      tty: true
+
+ 
