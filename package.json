@@ -9,7 +9,7 @@
   "private": false,
   "dependencies": {
     "@zeit/next-sass": "^1.0.1",
-    "bootstrap": "^5.0.0-alpha1",
+    "bootstrap": "^4.5.3",
     "eslint-config-prettier": "^6.15.0",
     "eslint-config-standard": "^16.0.1",
     "eslint-plugin-import": "^2.22.1",
