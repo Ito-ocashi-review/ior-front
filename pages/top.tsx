@@ -1,13 +1,13 @@
-import React, {FC} from 'react';
+import React, { ReactElement } from 'react';
 
-const Top: FC = ()=> {
-  return(
+const Top = ():ReactElement => {
+  return (
     <div>
       <p className="text-info">
         Topページ
       </p>
     </div>
   );
-}
+};
 
 export default Top;
