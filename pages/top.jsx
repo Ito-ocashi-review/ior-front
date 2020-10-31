@@ -1,9 +1,11 @@
 import React from 'react';
+import css from '../styles/index.scss'
 
 function Top() {
   return(
     <div>
-      <p>
+      {/* attach test style */}
+      <p className={css.test}>
         Topページ
       </p>
     </div>
