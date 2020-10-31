@@ -1,0 +1,8 @@
+{
+    // デフォルトのコード整形を無効化
+    "editor.formatOnSave": false,
+
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    }
+}
