@@ -5,6 +5,7 @@ ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
 RUN mkdir -p /Ito-ocashi-review/node_modules
+RUN mkdir -p /growi-cloud/.next
 
 # [Optional] Update UID/GID if needed
 RUN if [ "$USER_GID" != "1000" ] || [ "$USER_UID" != "1000" ]; then \
