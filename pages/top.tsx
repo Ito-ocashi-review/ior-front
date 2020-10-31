@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {FC} from 'react';
 
-function Top() {
+const Top: FC = ()=> {
   return(
     <div>
       <p className="text-info">
