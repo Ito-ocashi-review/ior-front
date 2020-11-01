@@ -1,4 +1,5 @@
-import { model, Schema, Document } from 'mongoose';
+import mongoose, { model, Schema, Document } from 'mongoose';
+import crypto from 'crypto';
 
 interface User extends Document {
     name: string;
@@ -11,6 +12,7 @@ interface User extends Document {
     fileSize: number;
 }
 
+// TODO fix schema
 const userSchema:Schema = new Schema<User>({
   name: {
     type: String,
@@ -19,9 +21,27 @@ const userSchema:Schema = new Schema<User>({
   },
   email: {
     type: String,
-    required: true,
+    required: false,
     unique: true,
   },
 });
 
-export default model<User>('User', userSchema);
+function generatePassword(password:string) {
+
+  const hasher = crypto.createHash('sha256');
+  const passwordSeed = process.env.PASSWORD_SEED || '';
+  hasher.update(passwordSeed + password);
+
+  return hasher.digest('hex');
+}
+
+userSchema.methods.isPasswordValid = function(password:string):boolean {
+  return this.password === generatePassword(password);
+};
+
+userSchema.statics.createUserByName = function(name:string, password:string):User {
+  const hashedPassword = generatePassword(password);
+  return this.create({ name, password: hashedPassword });
+};
+
+export default mongoose.models.User || model<User>('User', userSchema);
