@@ -1,12 +1,12 @@
 import React from 'react';
 
 type Props = {
-  height: string,
-  width: string,
-  fill: string,
+  height?: string,
+  width?: string,
+  fill?: string,
 }
 
-const Star: React.FC<Props> = ({ height, width, fill }) => {
+const Star: React.FC<Props> = ({ height = '1em', width = '1em', fill = 'currentColor' }) => {
   return (
     <svg width={width} height={height} viewBox="0 0 16 16" className="bi bi-star-fill" fill={fill} xmlns="http://www.w3.org/2000/svg">
       {/* eslint-disable-next-line max-len */}
