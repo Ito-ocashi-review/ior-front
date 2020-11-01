@@ -17,6 +17,7 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.21.5",
+    "mongoose": "^5.10.11",
     "next": "^10.0.0",
     "next-connect": "^0.9.1",
     "node-sass": "^4.14.1",
