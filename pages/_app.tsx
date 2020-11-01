@@ -1,18 +1,19 @@
+import React, { ReactElement } from 'react';
 import PropTypes from 'prop-types';
-import React from 'react';
 
 import '../styles/global.scss';
+import { AppProps } from 'next/app';
 
 // This default export is required in a new `pages/_app.js` file.
-function MyApp({ Component, pageProps }) {
+const App = ({ Component, pageProps }:AppProps):ReactElement => {
   return (
     <Component {...pageProps} />
   );
-}
+};
 
-MyApp.propTypes={
+App.propTypes = {
   pageProps: PropTypes.object.isRequired,
   Component: PropTypes.object,
 };
 
-export default MyApp;
+export default App;

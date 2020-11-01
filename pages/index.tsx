@@ -1,7 +1,7 @@
 import React from 'react';
 
-function Top() {
-  return(
+const Top: React.FC = () => {
+  return (
     <>
       <h2 className="text-center">好きなお菓子をランク付けしよう</h2>
       <div className="container my-5 py-5 bg-success">
@@ -51,6 +51,6 @@ function Top() {
       </div>
     </>
   );
-}
+};
 
 export default Top;
