@@ -14,16 +14,8 @@ const sweetReviews = [...Array(3)].map((value, i) => {
           </div>
         </div>
         <div className="py-3">
-          <Star
-            width="1em"
-            height="1em"
-            fill="currentColor"
-          />
-          <Star
-            width="1em"
-            height="1em"
-            fill="currentColor"
-          />
+          <Star />
+          <Star />
         </div>
       </div>
       <div className="px-3 bg-light">
