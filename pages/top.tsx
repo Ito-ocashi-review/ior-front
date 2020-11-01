@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 
-const Top = ():ReactElement => {
+const Top:React.FC = () => {
   return (
     <div>
       <p className="text-info">
