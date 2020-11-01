@@ -13,7 +13,7 @@ const App = ({ Component, pageProps }:AppProps):ReactElement => {
 
 App.propTypes = {
   pageProps: PropTypes.object.isRequired,
-  Component: PropTypes.object,
+  Component: PropTypes.func,
 };
 
 export default App;
