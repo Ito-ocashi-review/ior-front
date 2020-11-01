@@ -6,7 +6,6 @@ import { AppProps } from 'next/app';
 
 // This default export is required in a new `pages/_app.js` file.
 const App = ({ Component, pageProps }:AppProps):ReactElement => {
-
   return (
     <Component {...pageProps} />
   );

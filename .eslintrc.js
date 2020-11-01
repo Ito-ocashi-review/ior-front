@@ -8,6 +8,8 @@ module.exports = {
     'import/prefer-default-export': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-unused-vars': 'off',
+    // tsで型の管理をしているので、prop-types に関するルールは無効化
+    'react/prop-types': 'off',
     indent: [
       'error',
       2,
