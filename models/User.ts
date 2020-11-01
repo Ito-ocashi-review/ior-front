@@ -9,14 +9,13 @@ const userSchema = new mongoose.Schema({
   displayName: {
     type: String,
   },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  filePath: { type: String },
+  fileName: { type: String },
+  fileFormat: { type: String },
+  filseSize: { type: Number },
 });
-// export interface User {
-//     name: string;
-//     displayName: string;
-//     email: string;
-//     password: string;
-//     filePath: string;
-//     fileName: string;
-//     fileFormat: string;
-//     fileSize: number;
-// }
