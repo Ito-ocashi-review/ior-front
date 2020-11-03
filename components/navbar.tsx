@@ -1,55 +1,38 @@
 import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import {
+  AppBar, Toolbar, Typography, IconButton, Button,
+} from '@material-ui/core';
+import { Menu } from '@material-ui/icons';
 
-const Navbar: React.FC = () => {
+const useStyles = makeStyles(theme => ({
+  root: {
+    flexGrow: 1,
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
+  title: {
+    flexGrow: 1,
+  },
+}));
+
+const MenuAppBar:React.FC = () => {
+  const classes = useStyles();
+
   return (
-    <nav className="navbar navbar-expand-lg navbar-light pl-5 pr-5 p-3 navbar-color">
-      <a className="navbar-brand font-weight-bold" href="#">ito-ocashi</a>
-      <button
-        className="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span className="navbar-toggler-icon"></span>
-      </button>
-
-      <div className="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul className="navbar-nav ml-auto">
-          <li className="nav-item active">
-            <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">Link</a>
-          </li>
-          <li className="nav-item dropdown">
-            <a
-              className="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              Dropdown
-            </a>
-            <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a className="dropdown-item" href="#">Action</a>
-              <a className="dropdown-item" href="#">Another action</a>
-              <div className="dropdown-divider"></div>
-              <a className="dropdown-item" href="#">Something else here</a>
-            </div>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link disabled" href="#" aria-disabled="true">Disabled</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+    <AppBar position="static">
+      <Toolbar>
+        <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+          <Menu />
+        </IconButton>
+        <Typography variant="h6" className={classes.title}>
+          News
+        </Typography>
+        <Button color="inherit">Login</Button>
+      </Toolbar>
+    </AppBar>
   );
 };
 
-export default Navbar;
+export default MenuAppBar;

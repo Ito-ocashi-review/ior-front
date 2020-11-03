@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from '@material-ui/core';
 
 const Top:React.FC = () => {
   return (
@@ -6,6 +7,7 @@ const Top:React.FC = () => {
       <p className="text-info">
         Topページ
       </p>
+      <Button variant="contained" color="primary">Hello World</Button>
     </div>
   );
 };
