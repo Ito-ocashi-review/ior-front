@@ -1,7 +1,6 @@
 import mongoose from 'mongoose';
 import { NextApiResponse } from 'next';
-
-const mongoUri = process.env.MONGO_URI || 'mongodb://mongo:27017/ito-ocashi-review';
+import { getMongoUri, mongoOptions } from '../models/utils/mongoose-utils';
 
 const connection = {
   isConnected: null,
@@ -12,12 +11,7 @@ export async function connectDB(req: { dbClient: any; db: any; }, res: NextApiRe
     return next();
   }
 
-  const db = await mongoose.connect(mongoUri, {
-    useCreateIndex: true,
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-  });
+  const db = await mongoose.connect(getMongoUri(), mongoOptions);
 
   connection.isConnected = db.connections[0].readyState;
 
