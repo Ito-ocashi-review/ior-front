@@ -8,8 +8,9 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
     "@zeit/next-sass": "^1.0.1",
-    "bootstrap": "^5.0.0-alpha1",
     "crypto": "^1.0.1",
     "eslint-config-prettier": "^6.15.0",
     "eslint-config-standard": "^16.0.1",
