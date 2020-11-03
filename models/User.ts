@@ -10,19 +10,35 @@ interface User extends Document {
     fileName: string;
     fileFormat: string;
     fileSize: number;
+    isPasswordValid():boolean;
+    createUserByUsername(): User;
 }
 
-// TODO fix schema
 const userSchema:Schema = new Schema<User>({
   name: {
     type: String,
     unique: true,
     required: true,
   },
-  email: {
+  displayName: {
     type: String,
-    required: false,
-    unique: true,
+  },
+  // email: {
+  //   type: String,
+  //   required: false,
+  //   unique: true,
+  // },
+  password: {
+    type: String,
+  },
+  filePath: {
+    type: String,
+  },
+  fileFormat: {
+    type: String,
+  },
+  fileSize: {
+    type: Number,
   },
 });
 
