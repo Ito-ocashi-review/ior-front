@@ -10,6 +10,7 @@
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
+    "@types/mongoose": "^5.7.37",
     "@zeit/next-sass": "^1.0.1",
     "crypto": "^1.0.1",
     "eslint-config-prettier": "^6.15.0",
