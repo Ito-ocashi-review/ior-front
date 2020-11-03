@@ -11,7 +11,7 @@ const options = {
   ],
 
   // A database is optional, but required to persist accounts in a database
-  database: process.env.MONGO_URI || 'mongodb://localhost:27017/ito-ocashi-review',
+  database: process.env.MONGO_URI || 'mongodb://mongo:27017/ito-ocashi-review',
 
   jwt: true,
   sessionMaxAge: 30 * 24 * 60 * 60 * 1000, // Expire sessions after 30 days of being idle
