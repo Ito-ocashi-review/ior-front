@@ -1,6 +1,6 @@
 import React from 'react';
 import Star from '../components/icons/star';
-import NewReviewForm from '../components/forms/NewReviewForm'
+import NewReviewForm from '../components/forms/NewReviewForm';
 
 const sweetReviews = [...Array(3)].map((value, i) => {
   return (
