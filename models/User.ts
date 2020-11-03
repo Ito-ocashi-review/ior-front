@@ -1,7 +1,6 @@
-import mongoose from 'mongoose';
 import { createSchema, typedModel } from 'ts-mongoose';
 
-const UserSchema = createSchema({
+export const UserSchema = createSchema({
   name: {
     type: String,
     unique: true,
@@ -24,4 +23,4 @@ const UserSchema = createSchema({
   },
 });
 
-export default mongoose.models.User || typedModel('User', UserSchema);
+export const User = typedModel('User', UserSchema);

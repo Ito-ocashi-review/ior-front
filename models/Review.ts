@@ -1,6 +1,5 @@
-import mongoose from 'mongoose';
 import { createSchema, Type, typedModel } from 'ts-mongoose';
-import UserSchema from './User';
+import { UserSchema } from './User';
 
 const ReviewSchema = createSchema(
   {
@@ -10,4 +9,4 @@ const ReviewSchema = createSchema(
   },
 );
 
-export default mongoose.models.Review || typedModel('Review', ReviewSchema);
+export default typedModel('Review', ReviewSchema);
