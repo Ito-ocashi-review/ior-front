@@ -23,11 +23,11 @@ const userSchema:Schema = new Schema<User>({
   displayName: {
     type: String,
   },
-  email: {
-    type: String,
-    required: false,
-    unique: true,
-  },
+  // email: {
+  //   type: String,
+  //   required: false,
+  //   unique: true,
+  // },
   password: {
     type: String,
   },

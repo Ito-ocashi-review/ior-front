@@ -12,10 +12,10 @@ handler.get(async(req, res) => {
 
 // TODO validation
 handler.post(async(req, res) => {
-  const { name, passeord } = req.body;
+  const { name, password } = req.body;
 
   try {
-    const user = await User.createUserByName(name, passeord);
+    const user = await User.createUserByName(name, password);
     return res.status(200).json(user);
   }
   catch (error) {
