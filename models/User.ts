@@ -1,26 +1,17 @@
-import { createSchema, typedModel } from 'ts-mongoose';
+import { Types, Schema } from 'mongoose';
+import { getOrCreateModel } from './utils/mongoose-utils';
 
-export const UserSchema = createSchema({
+export interface IUser {
+  _id: Types.ObjectId;
+  name: string;
+}
+
+const schema = new Schema<IUser>({
   name: {
     type: String,
     unique: true,
     required: true,
   },
-  displayName: {
-    type: String,
-  },
-  password: {
-    type: String,
-  },
-  filePath: {
-    type: String,
-  },
-  fileFormat: {
-    type: String,
-  },
-  fileSize: {
-    type: Number,
-  },
 });
 
-export const User = typedModel('User', UserSchema);
+export default getOrCreateModel<IUser>('User', schema);

@@ -1,12 +1,15 @@
-import { createSchema, Type, typedModel } from 'ts-mongoose';
-import { UserSchema } from './User';
+import { Types, Schema } from 'mongoose';
+import { getOrCreateModel } from './utils/mongoose-utils';
 
-const ReviewSchema = createSchema(
-  {
-    star:  Type.number,
-    comment: Type.string,
-    reviewer: Type.ref(Type.objectId()).to('User', UserSchema),
-  },
-);
+export interface IReview {
+  _id: Types.ObjectId;
+  name: string;
+}
 
-export default typedModel('Review', ReviewSchema);
+const schema = new Schema<IReview>({
+  star:  { type: Number },
+  comment: { type: String },
+  reviewer: { type: Schema.Types.ObjectId },
+});
+
+export default getOrCreateModel<IReview>('Review', schema);
