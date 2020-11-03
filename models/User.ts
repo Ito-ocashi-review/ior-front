@@ -14,7 +14,6 @@ interface User extends Document {
     createUserByUsername(): User;
 }
 
-// TODO fix schema
 const userSchema:Schema = new Schema<User>({
   name: {
     type: String,
