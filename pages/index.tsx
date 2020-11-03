@@ -1,5 +1,6 @@
 import React from 'react';
 import Star from '../components/icons/star';
+import NewReviewForm from '../components/forms/NewReviewForm'
 
 const sweetReviews = [...Array(3)].map((value, i) => {
   return (
@@ -50,6 +51,7 @@ const Top: React.FC = () => {
           </div>
         </div>
       </div>
+      <NewReviewForm />
     </>
   );
 };
