@@ -3,7 +3,8 @@ import { getOrCreateModel } from './utils/mongoose-utils';
 
 export interface IReview {
   _id: Types.ObjectId;
-  name: string;
+  star: number;
+  comment: string;
 }
 
 const schema = new Schema<IReview>({
