@@ -22,4 +22,6 @@ services:
         - /Ito-ocashi-review/.next
       tty: true
 
+      links:
+        - mongo
  
