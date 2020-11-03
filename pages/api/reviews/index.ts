@@ -1,9 +1,8 @@
 import handler from '../handler';
-import { Review } from '../../../models/Review';
+import Review from '../../../models/Review';
 
 // TODO validation
 handler.post(async(req, res) => {
-  console.log(req.body);
   const { comment, star } = req.body;
 
   try {
