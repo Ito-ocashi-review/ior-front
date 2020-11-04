@@ -56,7 +56,7 @@ jobs:
     - name: Install dependencies
       if: steps.cache-dependencies.outputs.cache-hit != 'true'
       run: |
-        yarn
+        yar
 
     - name: Print dependencies
       run: |
@@ -73,7 +73,7 @@ jobs:
       if: failure()
       with:
         type: ${{ job.status }}
-        job_name: '*test (${{ matrix.node-version }})*'
+        job_name: '*lint (${{ matrix.node-version }})*'
         channel: '#mokumoku-ci'
         isCompactMode: true
         url: ${{ secrets.SLACK_WEBHOOK_URL }}
