@@ -80,7 +80,7 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
-
+    needs: [lint]
     strategy:
       matrix:
         node-version: [14.x]
@@ -128,8 +128,8 @@ jobs:
         echo -n "node " && node -v
         echo -n "npm " && npm -v
         yarn list --depth=0
-    - name: yarn build --debug
-      run: yarn build --debug
+    - name: yarn build --production
+      run: yarn build --production
     - name: Upload report as artifact
       uses: actions/upload-artifact@v2
       with:
@@ -146,9 +146,9 @@ jobs:
         isCompactMode: true
         url: ${{ secrets.SLACK_WEBHOOK_URL }}
 
-  success-alert:
+  all-jobs-success-alert:
     runs-on: ubuntu-latest
-    needs: [lint, build]
+    needs: [build]
     steps:
     - name: Slack Notification
       uses: weseek/ghaction-slack-notification@master
