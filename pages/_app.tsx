@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 import PropTypes from 'prop-types';
 
-import '../styles/global.scss';
+import '../styles/global.scss'
 import { AppProps } from 'next/app';
 import Navbar from '../components/navbar';
 
