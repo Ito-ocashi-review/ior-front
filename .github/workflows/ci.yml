@@ -128,8 +128,8 @@ jobs:
         echo -n "node " && node -v
         echo -n "npm " && npm -v
         yarn list --depth=0
-    - name: yarn build --debug
-      run: yarn build --debug
+    - name: yarn build --production
+      run: yarn build --production
     - name: Upload report as artifact
       uses: actions/upload-artifact@v2
       with:
