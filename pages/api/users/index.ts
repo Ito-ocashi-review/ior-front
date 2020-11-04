@@ -1,5 +1,4 @@
 import handler from '../handler';
-import User from '../../../models/User';
 
 handler.get(async(req, res) => {
   // GETの処理
@@ -8,21 +7,6 @@ handler.get(async(req, res) => {
     displayName: 'ほげ',
   };
   return res.json(user);
-});
-
-// TODO validation
-handler.post(async(req, res) => {
-  const { name, password } = req.body;
-
-  try {
-    const user = await User.createUserByName(name, password);
-    return res.status(200).json(user);
-  }
-  catch (error) {
-    // eslint-disable-next-line no-console
-    console.log(error);
-    return res.status(500).json({ error: error.message });
-  }
 });
 
 export default handler;
