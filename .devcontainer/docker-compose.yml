@@ -2,12 +2,6 @@
 version: '3.8'
 services:
 
-    mongo:
-      image: mongo
-      restart: always
-      ports:
-        - 27017:27017
-          
     node:
       user: node
       build:
@@ -18,7 +12,6 @@ services:
 
       volumes:
         - ..:/Ito-ocashi-review:cached
-        - /Ito-ocashi-review/front/node_modules
-        - /Ito-ocashi-review/front/.next
-        - /Ito-ocashi-review/back/node_modules
+        - /Ito-ocashi-review/node_modules
+        - /Ito-ocashi-review/.next
       tty: true

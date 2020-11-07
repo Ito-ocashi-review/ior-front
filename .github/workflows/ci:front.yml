@@ -11,9 +11,6 @@ jobs:
 
   lint:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: front
 
     strategy:
       matrix:
@@ -29,18 +26,18 @@ jobs:
 
     - name: before cache
       run: |
-        mkdir -p front/node_modules
-        ls front/node_modules
+        mkdir -p node_modules
+        ls node_modules
     - name: Get yarn cache directory path
       id: yarn-cache-dir-path
       run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
 
-    - name: Cache/Restore front/node_modules
+    - name: Cache/Restore node_modules
       id: cache-dependencies
       uses: actions/cache@v2
       with:
-        path: front/node_modules
-        key: ${{ runner.OS }}-node_modules_front-${{ matrix.node-version }}-${{ hashFiles('**/yarn.lock') }}
+        path: node_modules
+        key: ${{ runner.OS }}-node_modules-${{ matrix.node-version }}-${{ hashFiles('**/yarn.lock') }}
 
     - name: Get yarn cache dir
       if: steps.cache-dependencies.outputs.cache-hit != 'true'
@@ -83,9 +80,6 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: front
     needs: [lint]
     strategy:
       matrix:
@@ -104,16 +98,16 @@ jobs:
         echo ::set-output name=Ymd::$(date '+%Y%m%d')
         echo ::set-output name=Ym::$(date '+%Y%m')
         echo ::set-output name=Y::$(date '+%Y')
-    - name: Cache/Restore front/node_modules
+    - name: Cache/Restore node_modules
       id: cache-dependencies
       uses: actions/cache@v2
       with:
-        path: front/node_modules
-        key: ${{ runner.OS }}-node_modules_front-${{ matrix.node-version }}-${{ steps.date.outputs.YmdH }}
+        path: node_modules
+        key: ${{ runner.OS }}-node_modules-${{ matrix.node-version }}-${{ steps.date.outputs.YmdH }}
         restore-keys: |
-          ${{ runner.os }}-node_modules_font-${{ matrix.node-version }}-${{ steps.date.outputs.Ymd }}
-          ${{ runner.os }}-node_modules_font-${{ matrix.node-version }}-${{ steps.date.outputs.Ym }}
-          ${{ runner.os }}-node_modules_font-${{ matrix.node-version }}-${{ steps.date.outputs.Y }}
+          ${{ runner.os }}-node_modules-${{ matrix.node-version }}-${{ steps.date.outputs.Ymd }}
+          ${{ runner.os }}-node_modules-${{ matrix.node-version }}-${{ steps.date.outputs.Ym }}
+          ${{ runner.os }}-node_modules-${{ matrix.node-version }}-${{ steps.date.outputs.Y }}
     - name: Get yarn cache dir
       if: steps.cache-dependencies.outputs.cache-hit != 'true'
       id: cache-yarn
