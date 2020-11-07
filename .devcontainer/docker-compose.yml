@@ -1,5 +1,5 @@
 # Use root/example as user/password credentials
-version: '3.1'
+version: '3.8'
 services:
 
     mongo:
@@ -18,10 +18,7 @@ services:
 
       volumes:
         - ..:/Ito-ocashi-review:cached
-        - /Ito-ocashi-review/node_modules
-        - /Ito-ocashi-review/.next
+        - /Ito-ocashi-review/front/node_modules
+        - /Ito-ocashi-review/front/.next
+        - /Ito-ocashi-review/back/node_modules
       tty: true
-
-      links:
-        - mongo
- 
