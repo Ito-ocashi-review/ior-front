@@ -1,11 +1,19 @@
 import React from 'react';
-import TextField from '@material-ui/core/TextField';
+import {TextField} from '@material-ui/core';
 
 const ReviewText: React.FC = () => {
   return (
-    <form noValidate autoComplete="off">
-      <TextField id="standard-basic" label="Standard" />
-    </form>
+    <div>
+        <TextField
+          id="standard-textarea"
+          label="コメントを投稿"
+          placeholder="投稿内容を入力"
+          fullWidth={true}
+          rows="5"
+          multiline
+          margin="normal"
+        />
+    </div>
   )
 }
 

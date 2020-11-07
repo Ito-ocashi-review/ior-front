@@ -1,6 +1,7 @@
 import React from 'react';
 import Star from '../components/icons/star';
 import NewReviewForm from '../components/forms/NewReviewForm';
+import {Container} from '@material-ui/core';
 
 const sweetReviews = [...Array(3)].map((value, i) => {
   return (
@@ -30,28 +31,30 @@ const Top: React.FC = () => {
   return (
     <>
       <h2 className="text-center my-4">好きなお菓子をランク付けしよう</h2>
-      <div className="container my-5 py-5 bg-success">
-        <div className="row">
-          {sweetReviews}
+      <Container maxWidth="md">
+        <div className="container my-5 py-5 bg-success">
+          <div className="row">
+            {sweetReviews}
+          </div>
         </div>
-      </div>
-      <div className="container">
-        <div className="row">
-          <div className="col-md-6 bg-success">
-            <div className="row">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-6 bg-success">
+              <div className="row">
+                <h3>
+                  お菓子レポーターランキング
+                </h3>
+              </div>
+            </div>
+            <div className="col-md-6 bg-success">
               <h3>
-                お菓子レポーターランキング
+                お菓子ランキング
               </h3>
             </div>
           </div>
-          <div className="col-md-6 bg-success">
-            <h3>
-              お菓子ランキング
-            </h3>
-          </div>
         </div>
-      </div>
-      <NewReviewForm />
+        <NewReviewForm />
+      </Container>
     </>
   );
 };
