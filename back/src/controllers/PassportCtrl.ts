@@ -3,11 +3,10 @@ import {Authenticate} from "@tsed/passport";
 import {Returns} from "@tsed/schema";
 
 import {User} from "../models/User";
-import {UserCreation} from "../models/UserCreation";
 
 @Controller("/auth")
 @Scope(ProviderScope.SINGLETON)
-export class AuthCtrl {
+export class PassportCtrl {
   @Post("/login")
   @Authenticate("login")
   login(@Req() req: Req, @BodyParams("email") email: string, @BodyParams("password") password: string) {
@@ -18,7 +17,7 @@ export class AuthCtrl {
   @Post("/signup")
   @Returns(201, User)
   @Authenticate("signup")
-  signup(@Req() req: Req, @BodyParams() user: UserCreation) {
+  signup(@Req() req: Req, @BodyParams() user: User) {
     // FACADE
     return req.user;
   }

@@ -23,12 +23,12 @@ export class UsersService {
 
   /**
    * Find a user by his ID.
-   * @param id
+   * @param email
    * @returns {undefined|User}
    */
-  async find(id: string): Promise<User | null> {
-    $log.debug("Search a calendar from ID", id);
-    const user = await this.User.findById(id).exec();
+  async findByEmail(email: string): Promise<User | null> {
+    $log.debug("Search a calendar from email", email);
+    const user = await this.User.findOne({email}).exec();
 
     $log.debug("Found", user);
 
