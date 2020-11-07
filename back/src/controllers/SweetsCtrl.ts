@@ -4,7 +4,6 @@ import {Description, Required, Returns, Status, Summary} from "@tsed/schema";
 import {SweetId} from "../decorators/SweetId";
 import {Sweet} from "../models/Sweet";
 import {SweetsService} from "../services/SweetsService";
-import {Authorize} from "@tsed/passport";
 
 @Controller({
   path: "/sweets",
@@ -26,7 +25,6 @@ export class SweetsCtrl {
   }
 
   @Post("/")
-  @Authorize()
   @Summary("Create a new Sweet")
   @(Returns(201, Sweet).Description("Created"))
   save(

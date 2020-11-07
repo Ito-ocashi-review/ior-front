@@ -5,8 +5,6 @@ import "@tsed/mongoose";
 import "@tsed/platform-express"; // /!\ keep this import
 import "@tsed/swagger";
 
-import * as session from "express-session";
-
 import * as bodyParser from "body-parser";
 import * as compress from "compression";
 import * as cookieParser from "cookie-parser";
@@ -59,16 +57,6 @@ export class Server {
         bodyParser.urlencoded({
           extended: true
         })
-      ).use(session({
-        secret: "mysecretkey",
-        resave: true,
-        saveUninitialized: true,
-        // maxAge: 36000,
-        cookie: {
-          path: "/",
-          httpOnly: true,
-          secure: false,
-        }
-      }));
+      );
   }
 }
