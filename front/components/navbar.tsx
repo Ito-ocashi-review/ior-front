@@ -18,6 +18,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const MenuAppBar:React.FC = () => {
+  const hoge;
   const classes = useStyles();
 
   return (
