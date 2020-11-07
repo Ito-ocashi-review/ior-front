@@ -104,16 +104,16 @@ jobs:
         echo ::set-output name=Ymd::$(date '+%Y%m%d')
         echo ::set-output name=Ym::$(date '+%Y%m')
         echo ::set-output name=Y::$(date '+%Y')
-    - name: Cache/Restore front/node_modules_prod
+    - name: Cache/Restore front/node_modules
       id: cache-dependencies
       uses: actions/cache@v2
       with:
-        path: front/node_modules_prod
-        key: ${{ runner.OS }}-node_modules_prod_front-${{ matrix.node-version }}-${{ steps.date.outputs.YmdH }}
+        path: front/node_modules
+        key: ${{ runner.OS }}-node_modules_front-${{ matrix.node-version }}-${{ steps.date.outputs.YmdH }}
         restore-keys: |
-          ${{ runner.os }}-node_modules_prod_font-${{ matrix.node-version }}-${{ steps.date.outputs.Ymd }}
-          ${{ runner.os }}-node_modules_prod_font-${{ matrix.node-version }}-${{ steps.date.outputs.Ym }}
-          ${{ runner.os }}-node_modules_prod_font-${{ matrix.node-version }}-${{ steps.date.outputs.Y }}
+          ${{ runner.os }}-node_modules_font-${{ matrix.node-version }}-${{ steps.date.outputs.Ymd }}
+          ${{ runner.os }}-node_modules_font-${{ matrix.node-version }}-${{ steps.date.outputs.Ym }}
+          ${{ runner.os }}-node_modules_font-${{ matrix.node-version }}-${{ steps.date.outputs.Y }}
     - name: Get yarn cache dir
       if: steps.cache-dependencies.outputs.cache-hit != 'true'
       id: cache-yarn
