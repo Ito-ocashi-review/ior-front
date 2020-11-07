@@ -27,9 +27,8 @@ const MenuAppBar:React.FC = () => {
           <Menu />
         </IconButton>
         <Typography variant="h6" className={classes.title}>
-          News
+          いとおかし
         </Typography>
-        <Button color="inherit">Login</Button>
       </Toolbar>
     </AppBar>
   );
