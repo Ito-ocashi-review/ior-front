@@ -27,7 +27,7 @@ jobs:
     - name: before cache
       run: |
         mkdir -p node_modules
-        ls front/node_modules
+        ls node_modules
     - name: Get yarn cache directory path
       id: yarn-cache-dir-path
       run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
@@ -102,7 +102,7 @@ jobs:
       id: cache-dependencies
       uses: actions/cache@v2
       with:
-        path: front/node_modules
+        path: node_modules
         key: ${{ runner.OS }}-node_modules-${{ matrix.node-version }}-${{ steps.date.outputs.YmdH }}
         restore-keys: |
           ${{ runner.os }}-node_modules-${{ matrix.node-version }}-${{ steps.date.outputs.Ymd }}
