@@ -16,7 +16,7 @@ export class UsersService {
         const users = await this.User.find({});
 
         if (users.length === 0) {
-        const promises = require("../../resources/user.json").map((user: any) => this.save(user));
+        const promises = require("../../resources/users.json").map((user: any) => this.save(user));
         await Promise.all(promises);
         }
     }
