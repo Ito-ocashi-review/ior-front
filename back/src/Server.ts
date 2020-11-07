@@ -30,7 +30,7 @@ export const rootDir = __dirname;
   componentsScan: [],
   swagger: [
     {
-      path: "/v2/docs",
+      path: "/v1/docs",
       specVersion: "2.0"
     },
   ],
