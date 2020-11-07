@@ -14,5 +14,7 @@
           <b><a><a href="https://github.com/kazuki-homma"><img src="https://avatars0.githubusercontent.com/u/56999344?s=400&u=fae15f6d35e72c6a0ba9f3aace4da782cb1e36fa&v=4" width="70px;" style="border-radius: 50%;" /></a></b>
                       <b><a><a href="https://github.com/takayuki-t"><img src="https://avatars0.githubusercontent.com/u/52646333?s=400&v=4" width="70px;" style="border-radius: 50%;" /></a></b>
                                               <b><a><a href="https://github.com/kaoritokashiki"><img src="https://avatars2.githubusercontent.com/u/59536731?s=400&u=bc12e891add95e307d06c6989dae00fa541ea662&v=4" width="70px;" style="border-radius: 50%;" /></a></b>
+                                                                                              <b><a><a href="https://github.com/
+curtaincall888"><img src="https://avatars0.githubusercontent.com/u/61185362?s=400&v=4" width="70px;" style="border-radius: 50%;" /></a></b>
   </p>
 <br>
