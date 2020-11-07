@@ -1,10 +1,10 @@
 import React from 'react';
-import {Rating} from '@material-ui/lab';
-import {Typography} from '@material-ui/core';
+import { Rating } from '@material-ui/lab';
+import { Typography } from '@material-ui/core';
 
-const EvaluationForm = () => {
+const EvaluationForm: React.FC = () => {
   const [value, setValue] = React.useState<number | null>(2);
-  return(
+  return (
     <>
       <Typography component="legend">評価する</Typography>
       <Rating
@@ -15,7 +15,7 @@ const EvaluationForm = () => {
         }}
       />
     </>
-  )
-}
+  );
+};
 
 export default EvaluationForm;

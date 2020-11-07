@@ -1,7 +1,7 @@
 import React from 'react';
+import { Container } from '@material-ui/core';
 import Star from '../components/icons/star';
 import NewReviewForm from '../components/forms/NewReviewForm';
-import {Container} from '@material-ui/core';
 
 const sweetReviews = [...Array(3)].map((value, i) => {
   return (
@@ -25,7 +25,7 @@ const sweetReviews = [...Array(3)].map((value, i) => {
 });
 
 // あとでDBから値を受け取る
-const sweets: Array<string> = ["チュッパチャップス","kitkat","ぼたぼた焼き"];
+const sweets: Array<string> = ['チュッパチャップス', 'kitkat', 'ぼたぼた焼き'];
 
 const Top: React.FC = () => {
   return (
@@ -53,8 +53,8 @@ const Top: React.FC = () => {
             </div>
           </div>
         </div>
-        <NewReviewForm 
-          sweets = {sweets}
+        <NewReviewForm
+          sweets={sweets}
         />
       </Container>
     </>
