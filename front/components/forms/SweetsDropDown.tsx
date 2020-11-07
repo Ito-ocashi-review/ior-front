@@ -1,17 +1,19 @@
 import React from 'react';
 import { Select, InputLabel, MenuItem } from '@material-ui/core';
 
-const sweets: Array<string> = ["チュッパチャップス","kitkat","ぼたぼた焼き"];
+type Props = {
+  sweets: Array<string>
+}
 
-const sweetsItems: JSX.Element[] = sweets.map((item: string)=>{
-  return (
-    <MenuItem id={item}>
-      {item}
-    </MenuItem>
-  )
-});
+const SweetsDropDown: React.FC<Props> = React.memo(({sweets}) => {
+  const sweetsItems: JSX.Element[] = sweets.map((item: string)=>{
+    return (
+      <MenuItem id={item}>
+        {item}
+      </MenuItem>
+    )
+  });
 
-const SweetsDropDown: React.FC = () => {
   return (
     <>
       <InputLabel id="sweet">お菓子を選択</InputLabel>
@@ -20,6 +22,6 @@ const SweetsDropDown: React.FC = () => {
       </Select>
     </>
   )
-}
+})
 
 export default SweetsDropDown;

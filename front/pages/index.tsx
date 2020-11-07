@@ -20,12 +20,12 @@ const sweetReviews = [...Array(3)].map((value, i) => {
           <Star />
         </div>
       </div>
-      <div className="px-3 bg-light">
-
-      </div>
     </div>
   );
 });
+
+// あとでDBから値を受け取る
+const sweets: Array<string> = ["チュッパチャップス","kitkat","ぼたぼた焼き"];
 
 const Top: React.FC = () => {
   return (
@@ -53,7 +53,9 @@ const Top: React.FC = () => {
             </div>
           </div>
         </div>
-        <NewReviewForm />
+        <NewReviewForm 
+          sweets = {sweets}
+        />
       </Container>
     </>
   );
