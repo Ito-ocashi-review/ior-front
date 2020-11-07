@@ -33,8 +33,8 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "lint:styles": "stylelint styles/**/*.scss",
-    "lint:js": "eslint \"**/*.{js,jsx,ts,tsx}\"",
+    "lint:styles": "stylelint ./styles/**/*.scss",
+    "lint:js": "eslint \"./**/*.{js,jsx,ts,tsx}\"",
     "lint": "npm-run-all -p lint:js lint:styles"
   },
   "devDependencies": {
