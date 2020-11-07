@@ -1,21 +1,24 @@
 import React from 'react';
-import { ButtonGroup, Button } from '@material-ui/core';
+import { Select, InputLabel, MenuItem } from '@material-ui/core';
 
 const sweets: Array<string> = ["チュッパチャップス","kitkat","ぼたぼた焼き"];
 
-const sweetsItems = sweets.map((item: string)=>{
+const sweetsItems: JSX.Element[] = sweets.map((item: string)=>{
   return (
-    <Button>
+    <MenuItem id={item}>
       {item}
-    </Button>
+    </MenuItem>
   )
 });
 
 const SweetsDropDown: React.FC = () => {
   return (
-    <ButtonGroup disableElevation variant="contained" color="primary">
-      {sweetsItems}
-    </ButtonGroup>
+    <>
+      <InputLabel id="sweet">お菓子を選択</InputLabel>
+      <Select labelId="sweet" id="select" fullWidth={true}>
+        {sweetsItems}
+      </Select>
+    </>
   )
 }
 
