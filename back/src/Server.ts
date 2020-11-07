@@ -13,6 +13,7 @@ import mongooseConfig from "./config/index";
 
 import {IndexCtrl} from "./controllers/IndexCtrl";
 import {SweetsCtrl} from "./controllers/SweetsCtrl";
+import {UsersCtrl} from "./controllers/UsersCtrl";
 
 export const rootDir = __dirname;
 
@@ -23,7 +24,7 @@ export const rootDir = __dirname;
   httpsPort: false, // CHANGE
   mongoose: mongooseConfig,
   mount: {
-    "/api": [SweetsCtrl],
+    "/api": [SweetsCtrl, UsersCtrl],
     "/": [IndexCtrl]
   },
   componentsScan: [],
