@@ -18,6 +18,7 @@ services:
 
       volumes:
         - ..:/Ito-ocashi-review:cached
-        - /Ito-ocashi-review/node_modules
-        - /Ito-ocashi-review/.next
+        - /Ito-ocashi-review/front/node_modules
+        - /Ito-ocashi-review/front/.next
+        - /Ito-ocashi-review/back/node_modules
       tty: true
