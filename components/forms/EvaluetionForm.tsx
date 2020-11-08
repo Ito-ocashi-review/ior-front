@@ -10,6 +10,7 @@ const EvaluationForm: React.FC = () => {
       <Rating
         name="simple-controlled"
         value={value}
+        precision={0.1}
         onChange={(event, newValue) => {
           setValue(newValue);
         }}
