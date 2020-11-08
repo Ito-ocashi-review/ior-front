@@ -9,7 +9,7 @@ const ReviewText: React.FC = () => {
   return (
     <>
       <Controller
-        name="sweetReview"
+        name="comment"
         control={control}
         render={({ onChange, value }) => (
           <TextField
