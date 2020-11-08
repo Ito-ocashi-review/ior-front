@@ -10,7 +10,7 @@ const sweetReviews = [...Array(3)].map((value, i) => {
     <div key={i}>
       <div>
         <div className="sweet-item">
-          <p>ブラックサンダー</p>
+          <span>ブラックサンダー</span>
           <div className="sweet-review">
             まあまあうまい
           </div>
@@ -32,7 +32,7 @@ const Top: React.FC = () => {
     <>
       <h2>好きなお菓子をランク付けしよう</h2>
       <Container maxWidth="md">
-        <p>{sweetReviews}</p>
+        <span>{sweetReviews}</span>
         <div>
           <div>
             <h3>
