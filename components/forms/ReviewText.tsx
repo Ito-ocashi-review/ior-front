@@ -2,15 +2,20 @@ import React from 'react';
 import { useForm, Controller, useFormContext } from 'react-hook-form';
 import { TextField } from '@material-ui/core';
 
+type FormValues = {
+  TextField: string
+  comment: string
+}
+
 
 const ReviewText: React.FC = () => {
-  const { control } = useFormContext();
+  const { control } = useFormContext<FormValues>();
 
   return (
     <>
       <Controller
-        name="comment"
         control={control}
+        name="comment"
         render={({ onChange, value }) => (
           <TextField
             value={value}
