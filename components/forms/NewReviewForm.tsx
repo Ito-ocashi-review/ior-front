@@ -16,9 +16,9 @@ const NewReviewForm: React.FC<Props> = ({ sweets }) => {
   return (
     <FormProvider {...methods}>
       <form onSubmit={methods.handleSubmit(onSubmit)}>
-        <p>
+        <span>
           新しいレビューを登録する
-        </p>
+        </span>
         <SweetsDropDown sweets={sweets} />
         <ReviewText />
         <EvaluationForm />

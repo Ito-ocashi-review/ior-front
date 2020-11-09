@@ -22,7 +22,7 @@ const EvaluationForm: React.FC = () => {
         )}
       >
       </Controller>
-      <p>{rating}</p>
+      <span>{rating}</span>
     </>
   );
 };
