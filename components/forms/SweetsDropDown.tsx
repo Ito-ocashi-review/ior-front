@@ -1,7 +1,6 @@
 import React from 'react';
 import { Select, InputLabel, MenuItem } from '@material-ui/core';
 import { useFormContext, Controller } from 'react-hook-form';
-import SweetsItems from './SweetItems';
 
 type Props = {
   sweets: Array<string>
