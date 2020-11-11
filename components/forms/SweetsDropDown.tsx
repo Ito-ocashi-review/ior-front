@@ -31,7 +31,6 @@ const SweetsDropDown: React.FC<Props> = React.memo(({ sweets }) => {
           </Select>
         )}
       >
-
       </Controller>
     </>
   );
