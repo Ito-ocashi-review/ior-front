@@ -6,11 +6,11 @@ type Props = {
   onChange: VoidFunction,
 }
 
-const SweetsItems: React.FC<Props> = ({ sweets, onChange }) => {
+const SweetsItems: React.FC<Props> = ({ sweets }) => {
   return (
     sweets.map((sweet: string) => {
       return (
-        <MenuItem id={sweet} onClick={onChange(sweet)}>
+        <MenuItem id={sweet}>
           {sweet}
         </MenuItem>
       );

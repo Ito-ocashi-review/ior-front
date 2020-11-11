@@ -9,13 +9,7 @@ type Props = {
 
 const SweetsDropDown: React.FC<Props> = React.memo(({ sweets }) => {
   const { control, watch } = useFormContext();
-  const sweetsItems: JSX.Element[] = sweets.map((item: string) => {
-    return (
-      <MenuItem id={item}>
-        {item}
-      </MenuItem>
-    );
-  });
+  const sweet = watch('sweet', '');
 
   return (
     <>
@@ -25,8 +19,13 @@ const SweetsDropDown: React.FC<Props> = React.memo(({ sweets }) => {
         control={control}
         name="sweet"
         render={({ onChange }) => (
-          <Select labelId="sweet" id="select" fullWidth>
-            <SweetsItems onChange={onChange} sweets={sweets} />
+          <Select labelId="sweet" id="select" value={sweet} onChange={onChange} fullWidth>
+            <MenuItem value="ぼたぼた焼き">
+              ぼたぼた焼き
+            </MenuItem>
+            <MenuItem value="カントリ">
+              カントリ
+            </MenuItem>
           </Select>
         )}
       >
