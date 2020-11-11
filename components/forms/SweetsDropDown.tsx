@@ -20,12 +20,14 @@ const SweetsDropDown: React.FC<Props> = React.memo(({ sweets }) => {
         name="sweet"
         render={({ onChange }) => (
           <Select labelId="sweet" id="select" value={sweet} onChange={onChange} fullWidth>
-            <MenuItem value="ぼたぼた焼き">
-              ぼたぼた焼き
-            </MenuItem>
-            <MenuItem value="カントリ">
-              カントリ
-            </MenuItem>
+            { sweets.map((sweet: string) => {
+                return (
+                  <MenuItem id={sweet} value={sweet}>
+                    {sweet}
+                  </MenuItem>
+                );
+              })
+            }
           </Select>
         )}
       >
