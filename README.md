@@ -32,32 +32,34 @@ How to start
 *  **Start**
      - front
        - start docker compose in ior-front directory
-         - docker network create ito_ocashi_link
-         - docker-compose up
+         - `docker network create ito_ocashi_link`
+         - `docker-compose up`
        
        - resolve dependency
-         - yarn
+         - `yarn`
        - start 
-         - yarn dev
+         - `yarn dev`
        - access
          - http://localhost:3000/
          
      - back
         * Prepare environmental variable
-          - create .env file in top directory
-            - MONGO_URI=mongodb://mongo:27017/ior-back
-            - GITHUB_CLIENT_ID=''
-            - GITHUB_CLIENT_SECRET=''
-            - SITE_URL=http://localhost:8000
+          - create .env file in top directory 
+            ```
+            MONGO_URI=mongodb://mongo:27017/ior-back
+            GITHUB_CLIENT_ID='YOUR CLIENT ID'
+            GITHUB_CLIENT_SECRET='YOUR CLIENT SECRET'
+            SITE_URL=http://localhost:8000
+            ```
           
         - start docker compose in ior-back directory
          - docker network create ito_ocashi_link (If you exec this command at ior-front, needless to run this command.)
          - docker-compose up
        
        - resolve dependency
-         - yarn
+         - `yarn`
        - start 
-         - yarn dev
+         - `yarn dev`
        - access
          - http://localhost:8000/
          
