@@ -3,7 +3,7 @@ Ito-ocashi-review
 
 Table Of Contents
 -----------------
-- [What is Ito-ocashi-review ?](#What-is-Ito-ocashi-review?)
+- [What is Ito ocashi review ?](#What-is-Ito-ocashi-review?)
 - [How to start](#How-to-Start)
 - [Member](#Member)
   - Design
