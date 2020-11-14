@@ -86,12 +86,12 @@ Members :eyes:
   
 - Frontend
   - kenta
-  - kazuki
+  - kazki
   
 - Backend
   - sizma
   - itizawa
-  - yusuketk
+  - yusketk
   
 - Infrastructure
   - kohey
