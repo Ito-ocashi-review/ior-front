@@ -5,7 +5,7 @@ Table Of Contents
 -----------------
 - [What is Ito-ocashi-review?](#what-is-ito-ocashi-review-memo)
 - [How to start](#How-to-Start-running)
-- [Members](#memberseyes)
+- [Members](#members-eyes)
   - Design
   - Frontend
   - Backend
@@ -63,7 +63,7 @@ How to start :running:
        - access
          - http://localhost:8000/
          
-Members:eyes:
+Members :eyes:
 ======
 
 - Design
