@@ -27,7 +27,12 @@ How to start :running:
 ============
 
 * **Preparation**
-   * Clone this repository following folder structure     
+   * Clone this repository following folder structure  
+   ```
+   - ito-ocashi-review
+    - ior-front
+    - ior-bak
+   ```
    
 *  **Start**
      - front
