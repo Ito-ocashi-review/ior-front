@@ -1,4 +1,4 @@
-Ito-ocashi-review
+Ito-ocashi-review :cake:
 =====================
 
 Table Of Contents
@@ -11,7 +11,7 @@ Table Of Contents
   - Backend
   - Infrastructure
   
-What is Ito ocashi review?
+What is Ito ocashi review? :memo:
 ==========================
 
 * **Features**
@@ -23,7 +23,7 @@ What is Ito ocashi review?
       - GitHub
       - TBC...
 
-How to start
+How to start :running:
 ============
 
 * **Preparation**
@@ -63,7 +63,7 @@ How to start
        - access
          - http://localhost:8000/
          
-Members
+Members:eyes:
 ======
 
 - Design
