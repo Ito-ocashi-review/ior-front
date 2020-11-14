@@ -70,6 +70,7 @@ Technology :gem:
 - Docker
 - Node.js
 - Ts.ED
+- MongoDB
 - Javascript
 - TypeScript
 - React.js
