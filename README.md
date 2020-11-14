@@ -61,6 +61,28 @@ How to start
        - access
          - http://localhost:8000/
          
+Member
+======
+
+- Design
+  - kaori
+  
+- Frontend
+  - kenta
+  - kazuki
+  
+- Backend
+  - sizma
+  - itizawa
+  - yusuketk
+  
+- Infra
+  - kohey
+  - kota
+  - takayuki
+  
+
+         
          
          
 <p align="center">
