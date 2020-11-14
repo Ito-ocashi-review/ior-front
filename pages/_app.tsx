@@ -3,12 +3,15 @@ import PropTypes from 'prop-types';
 
 import '../styles/global.scss';
 import { AppProps } from 'next/app';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import Navbar from '../components/navbar';
 
 // This default export is required in a new `pages/_app.js` file.
 const App = ({ Component, pageProps }:AppProps):ReactElement => {
   return (
     <>
+      {/* reset default css setting */}
+      <CssBaseline />
       <Navbar />
       <Component {...pageProps} />
     </>
