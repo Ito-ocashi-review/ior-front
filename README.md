@@ -78,7 +78,7 @@ Members
   - itizawa
   - yusuketk
   
-- Infra
+- Infrastructure
   - kohey
   - kota
   - takayuki
