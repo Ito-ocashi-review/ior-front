@@ -4,7 +4,7 @@ Ito-ocashi-review :cake:
 Table Of Contents
 -----------------
 - [What is Ito-ocashi-review?](#what-is-ito-ocashi-review-memo)
-- [How to start](#How-to-Start-run)
+- [How to start](#How-to-Start-running)
 - [Members](#Members-eyes)
   - Design
   - Frontend
