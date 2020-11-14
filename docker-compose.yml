@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ior_front
+    command: sh -c "yarn dev"
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/ior-front
+      - /ior-front/node_modules
+      - /ior-front/.next
+    networks:
+      - ito_ocashi_link
+
+networks:
+  ito_ocashi_link:
+    external: true
