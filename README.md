@@ -11,7 +11,7 @@ Table Of Contents
   - Backend
   - Infrastructure
   
-What is Ito-ocashi-review ?
+What is Ito ocashi review ?
 ===========================
 
 * **Features**
