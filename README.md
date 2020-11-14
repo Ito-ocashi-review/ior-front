@@ -82,11 +82,8 @@ Member
   - kohey
   - kota
   - takayuki
-  
 
-         
-         
-         
+
 <p align="center">
   <br>
   <b><a>- Contributors -</a></b><br>
