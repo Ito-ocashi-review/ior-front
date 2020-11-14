@@ -1,7 +1,7 @@
 Ito ocashi review :cake:
 =====================
 
-![readme](![demo](https://raw.github.com/wiki/Ito-ocashi-review/ior-front/images/hoge.gif)
+![readme](https://raw.github.com/wiki/Ito-ocashi-review/ior-front/images/hoge.gif)
 
 Table Of Contents
 -----------------
