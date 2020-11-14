@@ -63,8 +63,22 @@ How to start :running:
        - access
          - http://localhost:8000/
          
+
+Technology :gem:
+===============
+- Kubenetes
+- Docker
+- Node.js
+- Ts.ED
+- Javascript
+- TypeScript
+- React.js
+- Next.js
+- Mateiral-UI
+
+
 Members :eyes:
-======
+==============
 
 - Design
   - kaori
