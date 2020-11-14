@@ -5,7 +5,7 @@ Table Of Contents
 -----------------
 - [What is Ito-ocashi-review?](#what-is-ito-ocashi-review)
 - [How to start](#How-to-Start)
-- [Member](#Member)
+- [Members](#Members)
   - Design
   - Frontend
   - Backend
@@ -63,7 +63,7 @@ How to start
        - access
          - http://localhost:8000/
          
-Member
+Members
 ======
 
 - Design
@@ -86,7 +86,7 @@ Member
 
 <p align="center">
   <br>
-  <b><a>- Contributors -</a></b><br>
+  <b><a>- Members -</a></b><br>
   <br>
   <b><a><a href="https://github.com/zahmis"><img src="https://avatars1.githubusercontent.com/u/57100766?s=460&u=07ff350519633aa04f9988a2f635c7dd1160e061&v=4" width="70px;" style="border-radius: 50%;" /></a></b>
   <b><a><a href="https://github.com/kenta-o-weseek"><img src="https://avatars0.githubusercontent.com/u/68103416?s=460&v=4" width="70px;" style="border-radius: 50%;" /></a></b>
