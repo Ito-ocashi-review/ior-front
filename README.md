@@ -1,8 +1,68 @@
+Ito-ocashi-review
+=====================
 
-<h2 align="center">
-  Ito-ocashi-review
-</h2>
+Table Of Contents
+-----------------
+- [What is Ito-ocashi-review ?](#What-is-Ito-ocashi-review?)
+- [How to start](#How-to-Start)
+- [Member](#Member)
+  - Design
+  - Frontend
+  - Backend
+  - Infrastructure
+  
+What is Ito-ocashi-review ?
+===========================
 
+* **Features**
+    * Post Sweets review
+    * Comment a review and reply comments
+    * Evaluate sweets
+    * Automatic Ranking
+    * Login with external account
+      - GitHub
+      - TBC...
+
+How to start
+============
+
+* **Preparation**
+   * Clone this repository following folder structure     
+   
+*  **Start**
+     - front
+       - start docker compose in ior-front directory
+         - docker network create ito_ocashi_link
+         - docker-compose up
+       
+       - resolve dependency
+         - yarn
+       - start 
+         - yarn dev
+       - access
+         - http://localhost:3000/
+         
+     - back
+        * Prepare environmental variable
+          - create .env file in top directory
+            - MONGO_URI=mongodb://mongo:27017/ior-back
+            - GITHUB_CLIENT_ID=''
+            - GITHUB_CLIENT_SECRET=''
+            - SITE_URL=http://localhost:8000
+          
+        - start docker compose in ior-back directory
+         - docker network create ito_ocashi_link (If you exec this command at ior-front, needless to run this command.)
+         - docker-compose up
+       
+       - resolve dependency
+         - yarn
+       - start 
+         - yarn dev
+       - access
+         - http://localhost:8000/
+         
+         
+         
 <p align="center">
   <br>
   <b><a>- Contributors -</a></b><br>
