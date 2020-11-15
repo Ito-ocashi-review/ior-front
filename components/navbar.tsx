@@ -24,8 +24,13 @@ const useStyles = makeStyles(theme => ({
 const renderLoginHtml = () => {
   return ReactDOMServer.renderToStaticMarkup(
     <div>
-      <GitHubIcon />
-      <p>githubログインする</p>
+      <Button
+        variant="contained"
+        color="secondary"
+        startIcon={<GitHubIcon />}
+      >
+        Delete
+      </Button>
     </div>
     ,
   );
