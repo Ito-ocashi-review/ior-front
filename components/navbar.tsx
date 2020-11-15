@@ -2,14 +2,13 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
-import ReactDOMServer from 'react-dom/server';
-import GitHubIcon from '@material-ui/icons/GitHub';
-import TwitterIcon from '@material-ui/icons/Twitter';
+
 import {
   AppBar, Toolbar, Typography, IconButton, Button,
-  Grid,
 } from '@material-ui/core';
 import { Menu } from '@material-ui/icons';
+
+import OAuthButton from './OAuthButton';
 
 
 const useStyles = makeStyles(theme => ({
@@ -27,42 +26,6 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const renderLoginHtml = (classes) => {
-  const handleGithubLogin = () => {
-    window.location.href = 'http://localhost:8000/api/auth/github';
-  };
-
-  return (
-    <Grid container spacing={2}>
-      <Grid item xs={12} sm={6}>
-        <Button
-          variant="outlined"
-          color="default"
-          startIcon={
-            <GitHubIcon />
-          }
-          fullWidth
-          onClick={handleGithubLogin}
-        >
-          github
-        </Button>
-      </Grid>
-      <Grid item xs={12} sm={6}>
-        <Button
-          variant="outlined"
-          color="default"
-          startIcon={(
-            <TwitterIcon className={classes.twitter} />
-          )}
-          fullWidth
-        >
-          twitter
-        </Button>
-      </Grid>
-    </Grid>
-  );
-};
-
 const MenuAppBar:React.FC = () => {
   const classes = useStyles();
 
@@ -71,7 +34,7 @@ const MenuAppBar:React.FC = () => {
   const handleLogin = () => {
     MySwal.fire({
       title: 'ログインする',
-      html: renderLoginHtml(classes),
+      html: <OAuthButton />,
       showConfirmButton: false,
       showCancelButton: true,
       cancelButtonColor: '#d33',
