@@ -29,7 +29,14 @@ const renderLoginHtml = () => {
         color="default"
         startIcon={<GitHubIcon />}
       >
-        Delete
+        githubでログインする
+      </Button>
+      <Button
+        variant="contained"
+        color="default"
+        startIcon={<GitHubIcon />}
+      >
+        twitterでログインする
       </Button>
     </div>
     ,
