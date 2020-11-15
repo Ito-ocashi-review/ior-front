@@ -26,7 +26,7 @@ const renderLoginHtml = () => {
     <div>
       <Button
         variant="contained"
-        color="secondary"
+        color="default"
         startIcon={<GitHubIcon />}
       >
         Delete
