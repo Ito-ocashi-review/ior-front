@@ -12,14 +12,20 @@ import {
 import { Menu } from '@material-ui/icons';
 
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
+    flexGrow: 1,
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
+  title: {
     flexGrow: 1,
   },
   twitter: {
     color: '#00aced',
   },
-});
+}));
 
 const renderLoginHtml = (classes) => {
   return ReactDOMServer.renderToStaticMarkup(
@@ -59,6 +65,9 @@ const MenuAppBar:React.FC = () => {
     await MySwal.fire({
       title: 'ログインする',
       html: renderLoginHtml(classes),
+      showConfirmButton: false,
+      showCancelButton: true,
+      cancelButtonColor: '#d33',
     });
   };
 
@@ -68,7 +77,7 @@ const MenuAppBar:React.FC = () => {
         <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
           <Menu />
         </IconButton>
-        <Typography variant="h6" className={classes.title}>
+        <Typography variant="h6">
           いとおかし
         </Typography>
         <Button onClick={handleLogin}>
