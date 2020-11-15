@@ -68,8 +68,8 @@ const MenuAppBar:React.FC = () => {
 
   const MySwal = withReactContent(Swal);
 
-  const handleLogin = async() => {
-    await MySwal.fire({
+  const handleLogin = () => {
+    MySwal.fire({
       title: 'ログインする',
       html: renderLoginHtml(classes),
       showConfirmButton: false,
