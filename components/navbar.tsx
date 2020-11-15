@@ -53,6 +53,9 @@ const MenuAppBar:React.FC = () => {
         <Button onClick={handleLogin}>
           ログイン
         </Button>
+        <Button>
+          fsakfksadjfjks
+        </Button>
       </Toolbar>
     </AppBar>
   );

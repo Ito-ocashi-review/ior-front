@@ -11,6 +11,9 @@ const useStyles = makeStyles(theme => ({
   twitter: {
     color: '#00aced',
   },
+  button: {
+    textTransform: 'none',
+  },
 }));
 
 const OAuthButton:React.FC = () => {
@@ -31,8 +34,9 @@ const OAuthButton:React.FC = () => {
           }
           fullWidth
           onClick={handleGithubLogin}
+          className={classes.button}
         >
-          github
+          GitHub
         </Button>
       </Grid>
       <Grid item xs={12} sm={6}>
@@ -43,8 +47,9 @@ const OAuthButton:React.FC = () => {
             <TwitterIcon className={classes.twitter} />
           )}
           fullWidth
+          className={classes.button}
         >
-          twitter
+          Twitter
         </Button>
       </Grid>
     </Grid>
