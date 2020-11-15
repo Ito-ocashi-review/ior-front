@@ -4,42 +4,49 @@ import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import ReactDOMServer from 'react-dom/server';
 import GitHubIcon from '@material-ui/icons/GitHub';
+import TwitterIcon from '@material-ui/icons/Twitter';
 import {
   AppBar, Toolbar, Typography, IconButton, Button,
+  Grid,
 } from '@material-ui/core';
 import { Menu } from '@material-ui/icons';
 
-const useStyles = makeStyles(theme => ({
+
+const useStyles = makeStyles({
   root: {
     flexGrow: 1,
   },
-  menuButton: {
-    marginRight: theme.spacing(2),
+  twitter: {
+    color: '#00aced',
   },
-  title: {
-    flexGrow: 1,
-  },
-}));
+});
 
-const renderLoginHtml = () => {
+const renderLoginHtml = (classes) => {
   return ReactDOMServer.renderToStaticMarkup(
-    <div>
-      <Button
-        variant="contained"
-        color="default"
-        startIcon={<GitHubIcon />}
-      >
-        githubでログインする
-      </Button>
-      <Button
-        variant="contained"
-        color="default"
-        startIcon={<GitHubIcon />}
-      >
-        twitterでログインする
-      </Button>
-    </div>
-    ,
+    <Grid container spacing={2}>
+      <Grid item xs={12} sm={6}>
+        <Button
+          variant="outlined"
+          color="default"
+          startIcon={<GitHubIcon />}
+          fullWidth
+        >
+          github
+        </Button>
+      </Grid>
+      <Grid item xs={12} sm={6}>
+        <Button
+          variant="outlined"
+          color="default"
+          startIcon={(
+            <TwitterIcon className={classes.twitter} />
+          )}
+          fullWidth
+        >
+          twitter
+        </Button>
+      </Grid>
+    </Grid>,
   );
 };
 
@@ -51,7 +58,7 @@ const MenuAppBar:React.FC = () => {
   const handleLogin = async() => {
     await MySwal.fire({
       title: 'ログインする',
-      html: renderLoginHtml(),
+      html: renderLoginHtml(classes),
     });
   };
 
