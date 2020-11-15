@@ -28,14 +28,21 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const renderLoginHtml = (classes) => {
-  return ReactDOMServer.renderToStaticMarkup(
+  const handleGithubLogin = () => {
+    window.location.href = 'http://localhost:8000/api/auth/github';
+  };
+
+  return (
     <Grid container spacing={2}>
       <Grid item xs={12} sm={6}>
         <Button
           variant="outlined"
           color="default"
-          startIcon={<GitHubIcon />}
+          startIcon={
+            <GitHubIcon />
+          }
           fullWidth
+          onClick={handleGithubLogin}
         >
           github
         </Button>
@@ -52,7 +59,7 @@ const renderLoginHtml = (classes) => {
           twitter
         </Button>
       </Grid>
-    </Grid>,
+    </Grid>
   );
 };
 
