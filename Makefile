@@ -18,8 +18,8 @@ build:
 	docker-compose -f ./docker-compose.yml build
 
 up:
-	docker-compose -f ../ior-back/docker-compose.yml up && \
-	docker-compose -f ./docker-compose.yml up
+	docker-compose -f ../ior-back/docker-compose.yml up -d && \
+	docker-compose -f ./docker-compose.yml up -d
 
 stop-frontend:
 	docker-compose -f ../ior-back/docker-compose.yml stop
