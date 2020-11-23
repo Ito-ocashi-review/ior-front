@@ -30,13 +30,14 @@ const Top: React.FC = () => {
   const [sweets, setSweets] = useState([]);
 
   const fetchSweets: any = async() => {
-    const sweets = await axios.get('http://localhost:8000/api/sweets');
-    const names = sweets.data.map((sweet) => {
-      return sweet.name;
-    });
-    logger.info('get all sweet data');
-    setSweets(names);
-    return names;
+    try {
+      const sweets = await axios.get('http://localhost:8000/api/sweets');
+      const names = sweets.data.map((sweet) => {
+        return sweet.name;
+      });
+      setSweets(names);
+      logger.info('get all sweet data');
+    }
     catch (error) {
       logger.error(error);
     }
