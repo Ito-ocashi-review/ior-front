@@ -1,3 +1,5 @@
-const withSass = require('@zeit/next-sass');
-
-module.exports = withSass();
+module.exports = {
+  env: {
+    API_SERVER_URL: 'http://localhost:8000'
+  },
+}

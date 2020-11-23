@@ -31,7 +31,7 @@ const Top: React.FC = () => {
 
   const fetchSweets: any = async() => {
     try {
-      const sweets = await axios.get('http://localhost:8000/api/sweets');
+      const sweets = await axios.get(`${process.env.API_SERVER_URL}/api/sweets`);
       const names = sweets.data.map((sweet) => {
         return sweet.name;
       });
