@@ -12,6 +12,7 @@
     "@material-ui/icons": "^4.9.1",
     "@types/mongoose": "^5.7.37",
     "@zeit/next-sass": "^1.0.1",
+    "axios": "^0.21.0",
     "crypto": "^1.0.1",
     "eslint-config-prettier": "^6.15.0",
     "eslint-config-standard": "^16.0.1",
@@ -52,6 +53,7 @@
     "eslint-config-weseek": "^1.0.6",
     "eslint-plugin-jest": "^24.1.0",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "react-logger": "^1.1.0",
     "typescript": "^4.0.5"
   }
 }

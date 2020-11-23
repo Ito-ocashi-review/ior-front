@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container } from '@material-ui/core';
+import axios from 'axios';
+import logger from 'react-logger';
 import Star from './icons/star';
 import NewReviewForm from './forms/NewReviewForm';
 
@@ -24,10 +26,26 @@ const sweetReviews = [...Array(3)].map((value, i) => {
   );
 });
 
-// あとでDBから値を受け取る
-const sweets: Array<string> = ['チュッパチャップス', 'kitkat', 'ぼたぼた焼き'];
-
 const Top: React.FC = () => {
+  const [sweets, setSweets] = useState([]);
+
+  const fetchSweets: any = async() => {
+    const sweets = await axios.get('http://localhost:8000/api/sweets');
+    const names = sweets.data.map((sweet) => {
+      return sweet.name;
+    });
+    logger.info('get all sweet data');
+    setSweets(names);
+    return names;
+    catch (error) {
+      logger.error(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchSweets();
+  }, []);
+
   return (
     <>
       <h2>好きなお菓子をランク付けしよう</h2>
