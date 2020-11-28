@@ -1,6 +1,8 @@
 import React from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
+import axios from 'axios';
 import Button from '@material-ui/core/Button';
+import logger from 'react-logger';
 import SweetsDropDown from './SweetsDropDown';
 import ReviewText from './ReviewText';
 import EvaluationForm from './EvaluetionForm';
@@ -11,7 +13,21 @@ type Props ={
 
 const NewReviewForm: React.FC<Props> = ({ sweets }) => {
   const methods = useForm();
-  const onSubmit = data => console.log(data);
+  const onSubmit = async(data) => {
+    console.log(data);
+    try {
+      await axios.post(`${process.env.API_SERVER_URL}/api/reviews`, {
+        userId: '5ce4f06355e6136cf623a2aa',
+        sweetId: '5ce7ad3028890bd71749d477',
+        star: 1.2,
+        comment: 'fdfasdla',
+      });
+    }
+    catch (error) {
+      logger.error(error);
+    }
+
+  };
 
   return (
     <FormProvider {...methods}>

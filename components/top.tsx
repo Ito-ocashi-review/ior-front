@@ -29,10 +29,11 @@ const sweetReviews = [...Array(3)].map((value, i) => {
 const Top: React.FC = () => {
   const [sweets, setSweets] = useState([]);
 
-  const fetchSweets: any = async() => {
+  const fetchSweets = async() :Promise<void> => {
     try {
       const sweets = await axios.get(`${process.env.API_SERVER_URL}/api/sweets`);
       const names = sweets.data.map((sweet) => {
+        console.log(sweet);
         return sweet.name;
       });
       setSweets(names);
