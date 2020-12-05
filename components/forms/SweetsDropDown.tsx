@@ -12,6 +12,7 @@ const SweetsDropDown: React.FC<Props> = React.memo(({ sweets }) => {
 
   return (
     <>
+      {console.log(sweets)}
       <InputLabel id="sweet">お菓子を選択</InputLabel>
 
       <Controller
@@ -21,8 +22,8 @@ const SweetsDropDown: React.FC<Props> = React.memo(({ sweets }) => {
           <Select labelId="sweet" id="select" value={sweet} onChange={onChange} fullWidth>
             { sweets.map((sweet: string) => {
                 return (
-                  <MenuItem id={sweet} value={sweet}>
-                    {sweet}
+                  <MenuItem id={sweet} value={sweet.id}>
+                    {sweet.name}
                   </MenuItem>
                 );
               })

@@ -17,10 +17,9 @@ const NewReviewForm: React.FC<Props> = ({ sweets }) => {
     console.log(data);
     try {
       await axios.post(`${process.env.API_SERVER_URL}/api/reviews`, {
-        userId: '5ce4f06355e6136cf623a2aa',
         sweetId: '5ce7ad3028890bd71749d477',
-        star: 1.2,
-        comment: 'fdfasdla',
+        star: data.rating,
+        comment: data.comment,
       });
     }
     catch (error) {
