@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
+import { signOut, useSession } from 'next-auth/client';
 
 import {
   AppBar, Toolbar, Typography, IconButton, Button,
@@ -33,6 +34,7 @@ const getSweet = () => {
 
 const MenuAppBar:React.FC = () => {
   const classes = useStyles();
+  const [session, loading] = useSession();
 
   const MySwal = withReactContent(Swal);
 
@@ -58,9 +60,19 @@ const MenuAppBar:React.FC = () => {
         <Button onClick={getSweet}>
           お菓子を取ってくる
         </Button>
-        <Button onClick={handleLogin}>
-          ログイン
-        </Button>
+        {!session && (
+          <Button onClick={handleLogin}>
+            ログイン
+          </Button>
+        )}
+        {session && (
+          <>
+            <Button onClick={signOut}>
+              ログアウト
+            </Button>
+            <img height="50px" className="ml-auto rounded-circle" src={session.user.image} />
+          </>
+        )}
       </Toolbar>
     </AppBar>
   );

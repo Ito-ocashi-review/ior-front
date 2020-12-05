@@ -7,6 +7,8 @@ import {
   Button, Grid,
 } from '@material-ui/core';
 
+import { signIn } from 'next-auth/client';
+
 const useStyles = makeStyles(theme => ({
   twitter: {
     color: '#00aced',
@@ -20,7 +22,7 @@ const OAuthButton:React.FC = () => {
   const classes = useStyles();
 
   const handleGithubLogin = () => {
-    window.location.href = 'http://localhost:8000/api/auth/github';
+    signIn('github');
   };
 
   return (
