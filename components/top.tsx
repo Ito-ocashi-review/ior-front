@@ -31,7 +31,7 @@ const Top: React.FC = () => {
   const [sweets, setSweets] = useState([]);
 
   useEffect(() => {
-    const fetchSweets = async() => {
+    const fetchSweets = async(): Promise<void> => {
       try {
         const sweets = await axios.get(`${process.env.API_SERVER_URL}/api/sweets`);
         setSweets(sweets.data);
