@@ -27,25 +27,19 @@ const sweetReviews = [...Array(3)].map((value, i) => {
 });
 
 const Top: React.FC = () => {
-  const [sweets, setSweets] = useState();
 
-  const fetchSweets = async() :Promise<void> => {
-    try {
-      const sweets = await axios.get(`${process.env.API_SERVER_URL}/api/sweets`);
-      // const names = sweets.data.map((sweet) => {
-      //   console.log(sweet);
-      //   return sweet.name;
-      // });
-      // setSweets(names);
-      logger.info('get all sweet data');
-      setSweets(sweets.data);
-    }
-    catch (error) {
-      logger.error(error);
-    }
-  };
+  const [sweets, setSweets] = useState([]);
 
   useEffect(() => {
+    const fetchSweets = async() => {
+      try {
+        const sweets = await axios.get(`${process.env.API_SERVER_URL}/api/sweets`);
+        setSweets(sweets.data);
+      }
+      catch (error) {
+        logger.error(error);
+      }
+    };
     fetchSweets();
   }, []);
 

@@ -12,7 +12,6 @@ const SweetsDropDown: React.FC<Props> = React.memo(({ sweets }) => {
 
   return (
     <>
-      {console.log(sweets)}
       <InputLabel id="sweet">お菓子を選択</InputLabel>
 
       <Controller
