@@ -7,14 +7,13 @@ import SweetsDropDown from './SweetsDropDown';
 import ReviewText from './ReviewText';
 import EvaluationForm from './EvaluetionForm';
 
-type Props ={
-  sweets: Array<string>,
+type Props = {
+  sweets: {name: string, id: number}[]
 }
 
 const NewReviewForm: React.FC<Props> = ({ sweets }) => {
   const methods = useForm();
   const onSubmit = async(data) => {
-    console.log(data);
     try {
       await axios.post(`${process.env.API_SERVER_URL}/api/reviews`, {
         sweetId: '5ce7ad3028890bd71749d477',
