@@ -7,6 +7,10 @@ const options = {
       clientId: process.env.GITHUB_CLIENT_ID,
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
     }),
+    Providers.Twitter({
+      clientId: process.env.TWITTER_CLIENT_ID,
+      clientSecret: process.env.TWITTER_CLIENT_SECRET,
+    }),
   ],
 
   // A database is optional, but required to persist accounts in a database
