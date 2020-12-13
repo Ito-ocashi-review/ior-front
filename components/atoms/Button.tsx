@@ -4,9 +4,7 @@ import { Button as MuiButton } from '@material-ui/core';
 type Props = ComponentProps<typeof MuiButton>;
 
 const Button:FC<Props> = (props:Props) => {
-  const {
-    color, variant, href, onClick, startIcon,
-  } = props;
+  const { color, variant, onClick } = props;
 
   return (
     <MuiButton
