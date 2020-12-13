@@ -13,9 +13,14 @@ type Props = {
 
 const NewReviewForm: React.FC<Props> = ({ sweets }) => {
   const methods = useForm();
+
+  const postAxios = axios.create({
+    baseURL: process.env.API_SERVER_URL,
+  });
+
   const onSubmit = async(data) => {
     try {
-      await axios.post(`${process.env.API_SERVER_URL}/api/reviews`, {
+      await postAxios.post('/api/reviews', {
         sweetId: '5ce7ad3028890bd71749d477',
         star: data.rating,
         comment: data.comment,
