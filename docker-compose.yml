@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: ior_front
-    command: sh -c "yarn dev"
+    command: sh -c "yarn && yarn dev"
     ports:
       - 3000:3000
     volumes:
