@@ -25,6 +25,10 @@ const OAuthButton:React.FC = () => {
     signIn('github');
   };
 
+  const handleTwitterLogin = () => {
+    signIn('twitter');
+  };
+
   return (
     <Grid container spacing={2}>
       <Grid item xs={12} sm={6}>
@@ -49,6 +53,7 @@ const OAuthButton:React.FC = () => {
             <TwitterIcon className={classes.twitter} />
           )}
           fullWidth
+          onClick={handleTwitterLogin}
           className={classes.button}
         >
           Twitter
