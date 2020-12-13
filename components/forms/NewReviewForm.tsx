@@ -3,6 +3,7 @@ import { useForm, FormProvider } from 'react-hook-form';
 import axios from 'axios';
 import Button from '@material-ui/core/Button';
 import logger from 'react-logger';
+import { useSession } from 'next-auth/client';
 import SweetsDropDown from './SweetsDropDown';
 import ReviewText from './ReviewText';
 import EvaluationForm from './EvaluetionForm';
@@ -13,9 +14,11 @@ type Props = {
 
 const NewReviewForm: React.FC<Props> = ({ sweets }) => {
   const methods = useForm();
+  const [session, loading] = useSession();
 
   const postAxios = axios.create({
     baseURL: process.env.API_SERVER_URL,
+    headers: { Authorization: `Bearer ${session.accessToken}` },
   });
 
   const onSubmit = async(data) => {
