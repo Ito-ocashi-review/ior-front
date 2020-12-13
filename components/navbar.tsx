@@ -3,14 +3,15 @@ import { makeStyles } from '@material-ui/core/styles';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import { signOut, useSession } from 'next-auth/client';
+import Router from 'next/router';
 
 import {
-  AppBar, Toolbar, Typography, IconButton, Button,
+  AppBar, Toolbar, Typography, IconButton,
 } from '@material-ui/core';
 import { Menu } from '@material-ui/icons';
 
 import OAuthButton from './OAuthButton';
-
+import Button from './atoms/Button';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -61,6 +62,9 @@ const MenuAppBar:React.FC = () => {
           <>
             <Button onClick={signOut}>
               ログアウト
+            </Button>
+            <Button color="secondary" variant="outlined" onClick={() => Router.push('/admin')}>
+              管理画面
             </Button>
             <img height="50px" className="ml-auto rounded-circle" src={session.user.image} />
           </>

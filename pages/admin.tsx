@@ -2,7 +2,7 @@ import React from 'react';
 
 const Admin: React.FC = () => {
   return (
-    <p>hoge</p>
+    <p>Admin Page</p>
   );
 };
 
