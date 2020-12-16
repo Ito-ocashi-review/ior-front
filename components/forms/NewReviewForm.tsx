@@ -14,11 +14,11 @@ type Props = {
 
 const NewReviewForm: React.FC<Props> = ({ sweets }) => {
   const methods = useForm();
-  const [session, loading] = useSession();
+  const [session] = useSession();
 
   const postAxios = axios.create({
     baseURL: process.env.API_SERVER_URL,
-    headers: { Authorization: `Bearer ${session.accessToken}` },
+    // headers: { Authorization: `Bearer ${session}` },
   });
 
   const onSubmit = async(data) => {
