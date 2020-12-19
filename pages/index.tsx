@@ -4,9 +4,7 @@ import Top from '../components/top';
 
 const Index: React.FC = () => {
   return (
-    <>
-      <Top />
-    </>
+    <Top />
   );
 };
 
