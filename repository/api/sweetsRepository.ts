@@ -1,5 +1,5 @@
-import Axios from 'axios';
+import { getAxios } from '../axios';
 
 export const getSweet = ():Promise<any> => {
-  return Axios.get(`${process.env.API_SERVER_URL}/api/sweets`);
+  return getAxios.get('/api/sweets');
 };
