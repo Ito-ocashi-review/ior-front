@@ -11,7 +11,6 @@ import Navbar from '../components/navbar';
 const App = ({ Component, pageProps }:AppProps):ReactElement => {
   return (
     <>
-      {/* reset default css setting */}
       <Provider session={pageProps.session}>
         <CssBaseline />
         <Navbar />

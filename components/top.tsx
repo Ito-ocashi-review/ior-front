@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Container } from '@material-ui/core';
 import axios from 'axios';
 import logger from 'react-logger';
+import { useSession } from 'next-auth/client';
 import Star from './icons/star';
 import NewReviewForm from './forms/NewReviewForm';
 
@@ -29,6 +30,8 @@ const sweetReviews = [...Array(3)].map((value, i) => {
 const Top: React.FC = (props) => {
 
   const [sweets, setSweets] = useState([]);
+
+  const [session, loading] = useSession();
 
   useEffect(() => {
     const fetchSweets = async(): Promise<void> => {
@@ -60,7 +63,7 @@ const Top: React.FC = (props) => {
             お菓子ランキング
           </h3>
         </div>
-        {props.session && (
+        {session && (
           <NewReviewForm
             sweets={sweets}
           />
