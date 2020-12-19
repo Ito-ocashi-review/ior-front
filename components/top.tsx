@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Container } from '@material-ui/core';
-import axios from 'axios';
 import logger from 'react-logger';
 import { useSession } from 'next-auth/client';
 import Star from './icons/star';
 import NewReviewForm from './forms/NewReviewForm';
+import { getSweet } from '../repository/api/sweetsRepository';
 
 const sweetReviews = [...Array(3)].map((value, i) => {
   return (
@@ -36,7 +36,7 @@ const Top: React.FC = (props) => {
   useEffect(() => {
     const fetchSweets = async(): Promise<void> => {
       try {
-        const sweets = await axios.get(`${process.env.API_SERVER_URL}/api/sweets`);
+        const sweets = await getSweet();
         setSweets(sweets.data);
       }
       catch (error) {
