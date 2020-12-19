@@ -22,7 +22,6 @@ const NewReviewForm: React.FC<Props> = ({ sweets }) => {
     catch (error) {
       logger.error(error);
     }
-
   };
 
   return (
