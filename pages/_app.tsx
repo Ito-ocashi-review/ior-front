@@ -1,5 +1,6 @@
 import React, { ReactElement } from 'react';
 import PropTypes from 'prop-types';
+import { Provider } from 'next-auth/client';
 
 import '../styles/global.scss';
 import { AppProps } from 'next/app';
@@ -11,9 +12,11 @@ const App = ({ Component, pageProps }:AppProps):ReactElement => {
   return (
     <>
       {/* reset default css setting */}
-      <CssBaseline />
-      <Navbar />
-      <Component {...pageProps} />
+      <Provider session={pageProps.session}>
+        <CssBaseline />
+        <Navbar />
+        <Component {...pageProps} />
+      </Provider>
     </>
   );
 };

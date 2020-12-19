@@ -26,7 +26,7 @@ const sweetReviews = [...Array(3)].map((value, i) => {
   );
 });
 
-const Top: React.FC = () => {
+const Top: React.FC = (props) => {
 
   const [sweets, setSweets] = useState([]);
 
@@ -60,9 +60,11 @@ const Top: React.FC = () => {
             お菓子ランキング
           </h3>
         </div>
-        <NewReviewForm
-          sweets={sweets}
-        />
+        {props.session && (
+          <NewReviewForm
+            sweets={sweets}
+          />
+        )}
       </Container>
     </>
   );
