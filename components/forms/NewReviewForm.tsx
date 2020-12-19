@@ -6,6 +6,7 @@ import logger from 'react-logger';
 import SweetsDropDown from './SweetsDropDown';
 import ReviewText from './ReviewText';
 import EvaluationForm from './EvaluetionForm';
+import { postReview } from '../../repository/api/reviewRepository';
 
 type Props = {
   sweets: {name: string, id: number}[]
@@ -14,18 +15,9 @@ type Props = {
 const NewReviewForm: React.FC<Props> = ({ sweets }) => {
   const methods = useForm();
 
-  const postAxios = axios.create({
-    baseURL: process.env.API_SERVER_URL,
-    // headers: { Authorization: `Bearer ${session}` },
-  });
-
   const onSubmit = async(data) => {
     try {
-      await postAxios.post('/api/reviews', {
-        sweetId: '5ce7ad3028890bd71749d477',
-        star: data.rating,
-        comment: data.comment,
-      });
+      await postReview(data);
     }
     catch (error) {
       logger.error(error);
