@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Container } from '@material-ui/core';
-import axios from 'axios';
 import logger from 'react-logger';
-import Star from './icons/star';
+import { useSession } from 'next-auth/client';
 import NewReviewForm from './forms/NewReviewForm';
+import { getSweet } from '../repository/api/sweetsRepository';
 
 const sweetReviews = [...Array(3)].map((value, i) => {
   return (
@@ -17,23 +17,21 @@ const sweetReviews = [...Array(3)].map((value, i) => {
             まあまあうまい
           </div>
         </div>
-        <div>
-          <Star />
-          <Star />
-        </div>
       </div>
     </div>
   );
 });
 
-const Top: React.FC = () => {
+const Top: React.FC = (props) => {
 
   const [sweets, setSweets] = useState([]);
+
+  const [session, loading] = useSession();
 
   useEffect(() => {
     const fetchSweets = async(): Promise<void> => {
       try {
-        const sweets = await axios.get(`${process.env.API_SERVER_URL}/api/sweets`);
+        const sweets = await getSweet();
         setSweets(sweets.data);
       }
       catch (error) {
@@ -60,9 +58,11 @@ const Top: React.FC = () => {
             お菓子ランキング
           </h3>
         </div>
-        <NewReviewForm
-          sweets={sweets}
-        />
+        {session && (
+          <NewReviewForm
+            sweets={sweets}
+          />
+        )}
       </Container>
     </>
   );

@@ -1,11 +1,12 @@
 import React from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
-import axios from 'axios';
+import { useSession } from 'next-auth/client';
 import Button from '@material-ui/core/Button';
 import logger from 'react-logger';
 import SweetsDropDown from './SweetsDropDown';
 import ReviewText from './ReviewText';
 import EvaluationForm from './EvaluetionForm';
+import { postReview } from '../../repository/api/reviewRepository';
 
 type Props = {
   sweets: {name: string, id: number}[]
@@ -13,18 +14,16 @@ type Props = {
 
 const NewReviewForm: React.FC<Props> = ({ sweets }) => {
   const methods = useForm();
+
+  const [session, loading] = useSession();
+
   const onSubmit = async(data) => {
     try {
-      await axios.post(`${process.env.API_SERVER_URL}/api/reviews`, {
-        sweetId: '5ce7ad3028890bd71749d477',
-        star: data.rating,
-        comment: data.comment,
-      });
+      await postReview(data, session);
     }
     catch (error) {
       logger.error(error);
     }
-
   };
 
   return (

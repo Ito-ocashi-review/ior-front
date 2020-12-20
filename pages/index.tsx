@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { createContext } from 'react';
+import { useSession } from 'next-auth/client';
 import Top from '../components/top';
 
 const Index: React.FC = () => {
@@ -7,4 +8,4 @@ const Index: React.FC = () => {
   );
 };
 
-export default Top;
+export default Index;
