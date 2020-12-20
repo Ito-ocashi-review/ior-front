@@ -55,6 +55,7 @@
     "eslint-config-weseek": "^1.0.6",
     "eslint-plugin-jest": "^24.1.0",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "prettier-eslint-cli": "^5.0.0",
     "react-logger": "^1.1.0",
     "typescript": "^4.0.5"
   }
