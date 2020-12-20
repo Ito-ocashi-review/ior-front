@@ -22,7 +22,7 @@ const Admin: React.FC = () => {
         as={Input}
         name="sweet"
         control={control}
-        defaultValue=""
+        placeholder="ビックリマンチョコ"
         className="materialUIInput"
       />
       <Button
