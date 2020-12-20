@@ -3,6 +3,7 @@ import { useForm, FormProvider } from 'react-hook-form';
 import { useSession } from 'next-auth/client';
 import Button from '@material-ui/core/Button';
 import logger from 'react-logger';
+import { Container } from '@material-ui/core';
 import SweetsDropDown from '../components/forms/SweetsDropDown';
 import ReviewText from '../components/forms/ReviewText';
 import EvaluationForm from '../components/forms/EvaluetionForm';
@@ -38,24 +39,26 @@ const NewReview: React.FC = () => {
   };
 
   return (
-    <FormProvider {...methods}>
-      <form onSubmit={methods.handleSubmit(onSubmit)}>
-        <span>
-          新しいレビューを登録する
-        </span>
-        <SweetsDropDown sweets={sweets} />
-        <ReviewText />
-        <EvaluationForm />
-        <Button
-          type="submit"
-          variant="contained"
-          color="secondary"
-          fullWidth
-        >
-          投稿する
-        </Button>
-      </form>
-    </FormProvider>
+    <Container maxWidth="md">
+      <FormProvider {...methods}>
+        <form onSubmit={methods.handleSubmit(onSubmit)}>
+          <span>
+            新しいレビューを登録する
+          </span>
+          <SweetsDropDown sweets={sweets} />
+          <ReviewText />
+          <EvaluationForm />
+          <Button
+            type="submit"
+            variant="contained"
+            color="secondary"
+            fullWidth
+          >
+            投稿する
+          </Button>
+        </form>
+      </FormProvider>
+    </Container>
   );
 };
 
