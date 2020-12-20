@@ -1,7 +1,6 @@
 import { axiosInstance } from '../axios';
 
 type data = {
-  sweetId: string,
   sweet: string,
 }
 
