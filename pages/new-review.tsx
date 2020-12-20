@@ -4,6 +4,7 @@ import { useSession } from 'next-auth/client';
 import Button from '@material-ui/core/Button';
 import logger from 'react-logger';
 import { Container } from '@material-ui/core';
+import Router from 'next/router';
 import SweetsDropDown from '../components/forms/SweetsDropDown';
 import ReviewText from '../components/forms/ReviewText';
 import EvaluationForm from '../components/forms/EvaluetionForm';
@@ -32,6 +33,7 @@ const NewReview: React.FC = () => {
   const onSubmit = async(data) => {
     try {
       await postReview(data, session);
+      Router.push('/');
     }
     catch (error) {
       logger.error(error);

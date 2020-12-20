@@ -20,6 +20,10 @@ const sweetReviews = [...Array(3)].map((value, i) => {
   );
 });
 
+const handleLogin = () => {
+
+};
+
 const Index: React.FC = () => {
 
   const [session, loading] = useSession();
@@ -42,6 +46,7 @@ const Index: React.FC = () => {
             お菓子ランキング
           </h3>
         </div>
+        {session && (
         <Button
           color="secondary"
           variant="outlined"
@@ -49,6 +54,17 @@ const Index: React.FC = () => {
         >
           投稿する
         </Button>
+        )}
+        {!session && (
+        <Button
+          color="secondary"
+          variant="outlined"
+          onClick={() => handleLogin()}
+        >
+          投稿するにはログインが必要です
+        </Button>
+        )}
+
       </Container>
     </>
   );

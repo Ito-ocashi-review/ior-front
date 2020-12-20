@@ -6,7 +6,7 @@ import { signOut, useSession } from 'next-auth/client';
 import Router from 'next/router';
 
 import {
-  AppBar, Toolbar, Typography, IconButton,
+  AppBar, Toolbar, IconButton,
 } from '@material-ui/core';
 import { Menu } from '@material-ui/icons';
 
