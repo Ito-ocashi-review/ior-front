@@ -3,10 +3,6 @@ import { useForm, FormProvider } from 'react-hook-form';
 import { useSession } from 'next-auth/client';
 import Button from '@material-ui/core/Button';
 import logger from 'react-logger';
-<<<<<<< HEAD
-import { Container } from '@material-ui/core';
-=======
->>>>>>> 1182cb8ae0c818ee9f5e28428b73d2e1314b9390
 import SweetsDropDown from '../components/forms/SweetsDropDown';
 import ReviewText from '../components/forms/ReviewText';
 import EvaluationForm from '../components/forms/EvaluetionForm';
