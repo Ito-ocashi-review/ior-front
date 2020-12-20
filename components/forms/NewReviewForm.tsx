@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
-import axios from 'axios';
+import { useSession } from 'next-auth/client';
 import Button from '@material-ui/core/Button';
 import logger from 'react-logger';
 import SweetsDropDown from './SweetsDropDown';
@@ -15,9 +15,11 @@ type Props = {
 const NewReviewForm: React.FC<Props> = ({ sweets }) => {
   const methods = useForm();
 
+  const [session, loading] = useSession();
+
   const onSubmit = async(data) => {
     try {
-      await postReview(data);
+      await postReview(data, session);
     }
     catch (error) {
       logger.error(error);

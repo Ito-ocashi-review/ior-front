@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Container } from '@material-ui/core';
 import logger from 'react-logger';
 import { useSession } from 'next-auth/client';
-import Star from './icons/star';
 import NewReviewForm from './forms/NewReviewForm';
 import { getSweet } from '../repository/api/sweetsRepository';
 
@@ -17,10 +16,6 @@ const sweetReviews = [...Array(3)].map((value, i) => {
           <div className="sweet-review">
             まあまあうまい
           </div>
-        </div>
-        <div>
-          <Star />
-          <Star />
         </div>
       </div>
     </div>

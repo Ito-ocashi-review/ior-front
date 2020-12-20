@@ -1,5 +1,5 @@
-import { getAxios } from '../axios';
+import { axiosInstance } from '../axios';
 
 export const getSweet = ():Promise<any> => {
-  return getAxios.get('/api/sweets');
+  return axiosInstance.get('/api/sweets');
 };

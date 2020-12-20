@@ -1,4 +1,4 @@
-import { postAxios } from '../axios';
+import { axiosInstance } from '../axios';
 
 type data = {
   sweet: string,
@@ -6,8 +6,20 @@ type data = {
   rating: string,
 }
 
-export const postReview = (data:data):Promise<any> => {
-  return postAxios.post('/api/reviews', {
+type user = {
+  image: string,
+  name: string,
+}
+
+type session = {
+  accessToken: string,
+  expires: string,
+  user: user,
+}
+
+export const postReview = (data:data, session:session):Promise<any> => {
+  axiosInstance.defaults.headers.common.Authorization = session.accessToken;
+  return axiosInstance.post('/api/reviews', {
     sweetId: data.sweet,
     star: data.rating,
     comment: data.comment,
