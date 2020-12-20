@@ -1,21 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
 import { useSession } from 'next-auth/client';
 import Button from '@material-ui/core/Button';
 import logger from 'react-logger';
-import SweetsDropDown from './SweetsDropDown';
-import ReviewText from './ReviewText';
-import EvaluationForm from './EvaluetionForm';
-import { postReview } from '../../repository/api/reviewRepository';
+import SweetsDropDown from '../components/forms/SweetsDropDown';
+import ReviewText from '../components/forms/ReviewText';
+import EvaluationForm from '../components/forms/EvaluetionForm';
+import { postReview } from '../repository/api/reviewRepository';
+import { getSweet } from '../repository/api/sweetsRepository';
 
-type Props = {
-  sweets: {name: string, id: number}[]
-}
-
-const NewReviewForm: React.FC<Props> = ({ sweets }) => {
+const NewReview: React.FC = () => {
   const methods = useForm();
 
+  const [sweets, setSweets] = useState([]);
   const [session, loading] = useSession();
+
+  useEffect(() => {
+    const fetchSweets = async(): Promise<void> => {
+      try {
+        const sweets = await getSweet();
+        setSweets(sweets.data);
+      }
+      catch (error) {
+        logger.error(error);
+      }
+    };
+    fetchSweets();
+  }, []);
 
   const onSubmit = async(data) => {
     try {
@@ -43,4 +54,4 @@ const NewReviewForm: React.FC<Props> = ({ sweets }) => {
   );
 };
 
-export default NewReviewForm;
+export default NewReview;
