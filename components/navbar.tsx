@@ -6,9 +6,8 @@ import { signOut, useSession } from 'next-auth/client';
 import Router from 'next/router';
 
 import {
-  AppBar, Toolbar, IconButton,
+  AppBar, Toolbar,
 } from '@material-ui/core';
-import { Menu } from '@material-ui/icons';
 
 import OAuthButton from './OAuthButton';
 import Button from './atoms/Button';
@@ -47,14 +46,6 @@ const MenuAppBar:React.FC = () => {
   return (
     <AppBar position="static">
       <Toolbar>
-        <IconButton
-          edge="start"
-          className={classes.menuButton}
-          color="inherit"
-          aria-label="menu"
-        >
-          <Menu />
-        </IconButton>
         <Button onClick={() => Router.push('/')}>
           いとおかし
         </Button>

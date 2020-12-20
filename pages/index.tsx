@@ -1,7 +1,10 @@
 import React from 'react';
 import { Button, Container } from '@material-ui/core';
+import withReactContent from 'sweetalert2-react-content';
+import Swal from 'sweetalert2';
 import { useSession } from 'next-auth/client';
 import Router from 'next/router';
+import OAuthButton from '../components/OAuthButton';
 
 const sweetReviews = [...Array(3)].map((value, i) => {
   return (
@@ -20,8 +23,16 @@ const sweetReviews = [...Array(3)].map((value, i) => {
   );
 });
 
-const handleLogin = () => {
+const MySwal = withReactContent(Swal);
 
+const handleLogin = () => {
+  MySwal.fire({
+    title: 'ログインする',
+    html: <OAuthButton />,
+    showConfirmButton: false,
+    showCancelButton: true,
+    cancelButtonColor: '#d33',
+  });
 };
 
 const Index: React.FC = () => {
@@ -31,7 +42,6 @@ const Index: React.FC = () => {
 
   return (
     <>
-      <h2>好きなお菓子をランク付けしよう</h2>
       <Container maxWidth="md">
         <span>{sweetReviews}</span>
         <div>
