@@ -47,7 +47,12 @@ const MenuAppBar:React.FC = () => {
   return (
     <AppBar position="static">
       <Toolbar>
-        <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+        <IconButton
+          edge="start"
+          className={classes.menuButton}
+          color="inherit"
+          aria-label="menu"
+        >
           <Menu />
         </IconButton>
         <Typography variant="h6">
@@ -63,10 +68,18 @@ const MenuAppBar:React.FC = () => {
             <Button onClick={signOut}>
               ログアウト
             </Button>
-            <Button color="secondary" variant="outlined" onClick={() => Router.push('/admin')}>
+            <Button
+              color="secondary"
+              variant="outlined"
+              onClick={() => Router.push('/admin')}
+            >
               管理画面
             </Button>
-            <img height="50px" className="ml-auto rounded-circle" src={session.user.image} />
+            <img
+              height="50px"
+              className="ml-auto rounded-circle"
+              src={session.user.image}
+            />
           </>
         )}
       </Toolbar>

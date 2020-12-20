@@ -46,7 +46,12 @@ const NewReview: React.FC = () => {
         <SweetsDropDown sweets={sweets} />
         <ReviewText />
         <EvaluationForm />
-        <Button type="submit" variant="contained" color="secondary" fullWidth>
+        <Button
+          type="submit"
+          variant="contained"
+          color="secondary"
+          fullWidth
+        >
           投稿する
         </Button>
       </form>
