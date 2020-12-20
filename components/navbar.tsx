@@ -12,23 +12,7 @@ import {
 import OAuthButton from './OAuthButton';
 import Button from './atoms/Button';
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  title: {
-    flexGrow: 1,
-  },
-  twitter: {
-    color: '#00aced',
-  },
-}));
-
 const MenuAppBar:React.FC = () => {
-  const classes = useStyles();
   const [session, loading] = useSession();
 
   const MySwal = withReactContent(Swal);
