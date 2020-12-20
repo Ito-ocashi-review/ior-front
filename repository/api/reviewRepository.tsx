@@ -1,4 +1,4 @@
-import { axiosInstance } from '../axios';
+import { iorAxiosInstance } from '../axios';
 
 type data = {
   sweet: string,
@@ -18,8 +18,8 @@ type session = {
 }
 
 export const postReview = (data:data, session:session):Promise<any> => {
-  axiosInstance.defaults.headers.common.Authorization = session.accessToken;
-  return axiosInstance.post('/api/reviews', {
+  iorAxiosInstance.defaults.headers.common.Authorization = session.accessToken;
+  return iorAxiosInstance.post('/api/reviews', {
     sweetId: data.sweet,
     star: data.rating,
     comment: data.comment,

@@ -1,11 +1,11 @@
-import { axiosInstance } from '../axios';
+import { iorAxiosInstance } from '../axios';
 
 type data = {
   sweet: string,
 }
 
-export const postSweet = (data:data):Promise<typeof axiosInstance> => {
-  return axiosInstance.post('/api/sweets', {
+export const postSweet = (data:data):Promise<typeof iorAxiosInstance> => {
+  return iorAxiosInstance.post('/api/sweets', {
     name: data.sweet,
   });
 };
