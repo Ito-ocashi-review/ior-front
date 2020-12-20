@@ -55,9 +55,9 @@ const MenuAppBar:React.FC = () => {
         >
           <Menu />
         </IconButton>
-        <Typography variant="h6">
+        <Button onClick={() => Router.push('/')}>
           いとおかし
-        </Typography>
+        </Button>
         {!session && (
           <Button onClick={handleLogin}>
             ログイン
