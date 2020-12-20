@@ -42,7 +42,11 @@ const Index: React.FC = () => {
             お菓子ランキング
           </h3>
         </div>
-        <Button color="secondary" variant="outlined" onClick={() => Router.push('/new-review')}>
+        <Button
+          color="secondary"
+          variant="outlined"
+          onClick={() => Router.push('/new-review')}
+        >
           投稿する
         </Button>
       </Container>
