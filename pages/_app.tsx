@@ -1,16 +1,12 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { Provider } from 'next-auth/client';
 import { AppProps } from 'next/app';
 import { ThemeProvider } from '@material-ui/core/styles';
-import { CacheProvider } from '@emotion/react';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import createCache from '@emotion/cache';
 import theme from '../src/theme';
 import NavBar from '../components/navbar';
 
-export const cache = createCache({ key: 'css', prepend: true });
-
-export default function MyApp(props: AppProps) {
+const MyApp = (props: AppProps):ReactElement => {
   const { Component, pageProps } = props;
 
   React.useEffect(() => {
@@ -24,15 +20,15 @@ export default function MyApp(props: AppProps) {
   return (
     <>
       <Provider session={pageProps.session}>
-        <CacheProvider value={cache}>
-          <NavBar />
-          <ThemeProvider theme={theme}>
-            {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-            <CssBaseline />
-            <Component {...pageProps} />
-          </ThemeProvider>
-        </CacheProvider>
+        <NavBar />
+        <ThemeProvider theme={theme}>
+          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+          <CssBaseline />
+          <Component {...pageProps} />
+        </ThemeProvider>
       </Provider>
     </>
   );
-}
+};
+
+export default MyApp;
