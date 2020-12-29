@@ -1,12 +1,13 @@
 import React from 'react';
 import {
-  Button, Card, CardContent, CardMedia, Container, Grid, Paper, Typography,
+  Button, Card, CardContent, CardHeader, CardMedia, Container, Grid, Paper, Typography,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import withReactContent from 'sweetalert2-react-content';
 import Swal from 'sweetalert2';
 import { useSession } from 'next-auth/client';
 import Router from 'next/router';
+import { Rating } from '@material-ui/lab';
 import OAuthButton from '../components/OAuthButton';
 
 const sweetReviews = [...Array(3)].map((value, i) => {
@@ -42,8 +43,8 @@ const useStyles = makeStyles(theme => ({
   top: {
     color: '#270000',
     height: '100vh',
-    textAlign: 'center',
     margin: '50px',
+    textAlign: 'center',
   },
   title: {
     fontSize: '100px',
@@ -64,53 +65,67 @@ const useStyles = makeStyles(theme => ({
     color: 'white',
     backgroundColor: '#270000',
   },
+  cardHeader: {
+    textAlign: 'left',
+  },
+  cardRating: {
+    textAlign: 'right',
+  },
+  cardButton: {
+    color: '#FFAA01',
+    margin: '15px 0',
+    border: '1px solid #FFAA01',
+    borderRadius: '18px',
+  },
 }));
 
 const Index: React.FC = () => {
   const [session, loading] = useSession();
 
-  const filePaths = ['/image/jagariko.png', '/image/jagariko.png', '/image/jagariko.png'];
-
   const classes = useStyles();
+
+  const filePaths = ['/image/jagariko.png', '/image/poteti.png', '/image/umaibou.png'];
+
+  const cards = filePaths.map((filePath) => {
+    return (
+      <>
+        <Grid item xs={4}>
+          <Card>
+            <CardHeader
+              title="じゃがりこ"
+              className={`${classes.cardContent} ${classes.cardHeader}`}
+            />
+            <CardContent className={`${classes.cardContent} ${classes.cardRating}`}>
+              <Rating
+                value={3.5}
+              />
+            </CardContent>
+            <CardMedia
+              component="img"
+              src={filePath}
+            />
+            <CardContent className={`${classes.cardContent} ${classes.cardRating}`}>
+              <Typography>
+                This impressive paella is a perfect party dish and a fun meal to cook together with your
+                guests. Add 1 cup of frozen peas along with the mussels, if you like.
+              </Typography>
+              <Button className={classes.cardButton}>
+                + もっと見る
+              </Button>
+            </CardContent>
+          </Card>
+        </Grid>
+      </>
+    );
+  });
 
   return (
     <div className={classes.top}>
-      <Grid container spacing={5}>
+      <div>
         <span className={classes.title}>お菓子ランキングトップ３</span>
-        <Grid item xs={4}>
-          <Card>
-            <CardMedia
-              component="img"
-              src={filePaths[0]}
-            />
-            <CardContent className={classes.cardContent}>
-              <Typography>
-                This impressive paella is a perfect party dish and a fun meal to cook together with your
-                guests. Add 1 cup of frozen peas along with the mussels, if you like.
-              </Typography>
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid item xs={4}>
-          <Card>
-            <CardContent className={classes.cardContent}>
-              <Typography>
-                This impressive paella is a perfect party dish and a fun meal to cook together with your
-                guests. Add 1 cup of frozen peas along with the mussels, if you like.
-              </Typography>
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid item xs={4}>
-          <Card>
-            <CardContent className={classes.cardContent}>
-              <Typography>
-                This impressive paella is a perfect party dish and a fun meal to cook together with your
-                guests. Add 1 cup of frozen peas along with the mussels, if you like.
-              </Typography>
-            </CardContent>
-          </Card>
-        </Grid>
+      </div>
+      <Grid container spacing={9}>
+        {cards}
       </Grid>
       {session && (
         <Button
