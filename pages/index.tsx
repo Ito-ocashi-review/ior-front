@@ -1,6 +1,8 @@
 import React from 'react';
-import { Button, Container } from '@material-ui/core';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import {
+  Button, Card, CardContent, CardMedia, Container, Grid, Paper, Typography,
+} from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 import withReactContent from 'sweetalert2-react-content';
 import Swal from 'sweetalert2';
 import { useSession } from 'next-auth/client';
@@ -38,9 +40,14 @@ const handleLogin = () => {
 
 const useStyles = makeStyles(theme => ({
   top: {
-    backgroundColor: '#151515',
-    color: 'white',
+    color: '#270000',
     height: '100vh',
+    textAlign: 'center',
+    margin: '50px',
+  },
+  title: {
+    fontSize: '100px',
+    font: 'MotoyalMaru',
   },
   reviewButton: {
     color: 'black',
@@ -53,30 +60,59 @@ const useStyles = makeStyles(theme => ({
       transition: 'all 0.2s linear',
     },
   },
+  cardContent: {
+    color: 'white',
+    backgroundColor: '#270000',
+  },
 }));
 
 const Index: React.FC = () => {
   const [session, loading] = useSession();
 
+  const filePaths = ['/image/jagariko.png', '/image/jagariko.png', '/image/jagariko.png'];
+
   const classes = useStyles();
 
   return (
     <div className={classes.top}>
-      <Container maxWidth="md">
-        <span>{sweetReviews}</span>
-        <div>
-          <div>
-            <h3>
-              お菓子レポーターランキング
-            </h3>
-          </div>
-        </div>
-        <div>
-          <h3>
-            お菓子ランキング
-          </h3>
-        </div>
-        {session && (
+      <Grid container spacing={5}>
+        <span className={classes.title}>お菓子ランキングトップ３</span>
+        <Grid item xs={4}>
+          <Card>
+            <CardMedia
+              component="img"
+              src={filePaths[0]}
+            />
+            <CardContent className={classes.cardContent}>
+              <Typography>
+                This impressive paella is a perfect party dish and a fun meal to cook together with your
+                guests. Add 1 cup of frozen peas along with the mussels, if you like.
+              </Typography>
+            </CardContent>
+          </Card>
+        </Grid>
+        <Grid item xs={4}>
+          <Card>
+            <CardContent className={classes.cardContent}>
+              <Typography>
+                This impressive paella is a perfect party dish and a fun meal to cook together with your
+                guests. Add 1 cup of frozen peas along with the mussels, if you like.
+              </Typography>
+            </CardContent>
+          </Card>
+        </Grid>
+        <Grid item xs={4}>
+          <Card>
+            <CardContent className={classes.cardContent}>
+              <Typography>
+                This impressive paella is a perfect party dish and a fun meal to cook together with your
+                guests. Add 1 cup of frozen peas along with the mussels, if you like.
+              </Typography>
+            </CardContent>
+          </Card>
+        </Grid>
+      </Grid>
+      {session && (
         <Button
           variant="outlined"
           className={classes.reviewButton}
@@ -85,7 +121,7 @@ const Index: React.FC = () => {
           投稿する
         </Button>
         )}
-        {!session && (
+      {!session && (
         <Button
           variant="outlined"
           className={classes.reviewButton}
@@ -94,8 +130,6 @@ const Index: React.FC = () => {
           投稿するにはログインが必要です
         </Button>
         )}
-
-      </Container>
     </div>
   );
 };

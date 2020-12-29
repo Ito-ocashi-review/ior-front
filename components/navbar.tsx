@@ -19,10 +19,10 @@ const MenuAppBar:React.FC = () => {
 
   const useStyles = makeStyles(theme => ({
     navbar: {
-      backgroundColor: '#984B15',
+      backgroundColor: '#270000',
     },
     halloweenFont: {
-      color: '#FFFFFF',
+      color: '#FFAA01',
     },
   }));
 
