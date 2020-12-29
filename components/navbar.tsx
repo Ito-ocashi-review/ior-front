@@ -17,6 +17,15 @@ const MenuAppBar:React.FC = () => {
 
   const MySwal = withReactContent(Swal);
 
+  const useStyles = makeStyles(theme => ({
+    navbar: {
+      backgroundColor: '#984B15',
+    },
+    halloweenFont: {
+      color: '#FFFFFF',
+    },
+  }));
+
   const handleLogin = () => {
     MySwal.fire({
       title: 'ログインする',
@@ -27,14 +36,16 @@ const MenuAppBar:React.FC = () => {
     });
   };
 
+  const classes = useStyles();
+
   return (
-    <AppBar position="static">
+    <AppBar position="static" className={classes.navbar}>
       <Toolbar>
-        <Button onClick={() => Router.push('/')}>
+        <Button onClick={() => Router.push('/')} color="inherit">
           いとおかし
         </Button>
         {!session && (
-          <Button onClick={handleLogin}>
+          <Button onClick={handleLogin} color="inherit">
             ログイン
           </Button>
         )}

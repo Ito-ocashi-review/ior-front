@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Container } from '@material-ui/core';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import withReactContent from 'sweetalert2-react-content';
 import Swal from 'sweetalert2';
 import { useSession } from 'next-auth/client';
@@ -13,7 +14,7 @@ const sweetReviews = [...Array(3)].map((value, i) => {
     <div key={i}>
       <div>
         <div className="sweet-item">
-          <span>ブラックサンダー</span>
+          <span>ブラックサンダ</span>
           <div className="sweet-review">
             まあまあうまい
           </div>
@@ -35,13 +36,32 @@ const handleLogin = () => {
   });
 };
 
-const Index: React.FC = () => {
+const useStyles = makeStyles(theme => ({
+  top: {
+    backgroundColor: '#151515',
+    color: 'white',
+    height: '100vh',
+  },
+  reviewButton: {
+    color: 'black',
+    border: '2px solid #984B15',
+    backgroundColor: '#984B15',
+    fontWeight: 'bold',
+    '&:hover': {
+      backgroundColor: '#984B15',
+      borderRadius: '30px',
+      transition: 'all 0.2s linear',
+    },
+  },
+}));
 
+const Index: React.FC = () => {
   const [session, loading] = useSession();
 
+  const classes = useStyles();
 
   return (
-    <>
+    <div className={classes.top}>
       <Container maxWidth="md">
         <span>{sweetReviews}</span>
         <div>
@@ -58,8 +78,8 @@ const Index: React.FC = () => {
         </div>
         {session && (
         <Button
-          color="secondary"
           variant="outlined"
+          className={classes.reviewButton}
           onClick={() => Router.push('/new-review')}
         >
           投稿する
@@ -67,8 +87,8 @@ const Index: React.FC = () => {
         )}
         {!session && (
         <Button
-          color="secondary"
           variant="outlined"
+          className={classes.reviewButton}
           onClick={() => handleLogin()}
         >
           投稿するにはログインが必要です
@@ -76,7 +96,7 @@ const Index: React.FC = () => {
         )}
 
       </Container>
-    </>
+    </div>
   );
 };
 
