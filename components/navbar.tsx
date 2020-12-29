@@ -6,33 +6,25 @@ import { signOut, useSession } from 'next-auth/client';
 import Router from 'next/router';
 
 import {
-  AppBar, Toolbar, Typography, IconButton,
+  AppBar, Toolbar,
 } from '@material-ui/core';
-import { Menu } from '@material-ui/icons';
 
 import OAuthButton from './OAuthButton';
 import Button from './atoms/Button';
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  title: {
-    flexGrow: 1,
-  },
-  twitter: {
-    color: '#00aced',
-  },
-}));
-
 const MenuAppBar:React.FC = () => {
-  const classes = useStyles();
   const [session, loading] = useSession();
 
   const MySwal = withReactContent(Swal);
+
+  const useStyles = makeStyles(theme => ({
+    navbar: {
+      backgroundColor: '#984B15',
+    },
+    halloweenFont: {
+      color: '#FFFFFF',
+    },
+  }));
 
   const handleLogin = () => {
     MySwal.fire({
@@ -44,22 +36,16 @@ const MenuAppBar:React.FC = () => {
     });
   };
 
+  const classes = useStyles();
+
   return (
-    <AppBar position="static">
+    <AppBar position="static" className={classes.navbar}>
       <Toolbar>
-        <IconButton
-          edge="start"
-          className={classes.menuButton}
-          color="inherit"
-          aria-label="menu"
-        >
-          <Menu />
-        </IconButton>
-        <Button onClick={() => Router.push('/')}>
+        <Button onClick={() => Router.push('/')} color="inherit">
           いとおかし
         </Button>
         {!session && (
-          <Button onClick={handleLogin}>
+          <Button onClick={handleLogin} color="inherit">
             ログイン
           </Button>
         )}
