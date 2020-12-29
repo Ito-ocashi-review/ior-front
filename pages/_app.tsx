@@ -7,7 +7,6 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import createCache from '@emotion/cache';
 import theme from '../src/theme';
 import NavBar from '../components/navbar';
-import Index from '.';
 
 export const cache = createCache({ key: 'css', prepend: true });
 
