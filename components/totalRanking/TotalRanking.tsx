@@ -1,4 +1,4 @@
-import { Grid, makeStyles, Paper } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import React from 'react';
 import TotalRankingDisplay from './TotalRankingDisplay';
 
