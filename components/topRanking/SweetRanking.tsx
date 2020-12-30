@@ -7,15 +7,13 @@ import SweetCard from './SweetCard';
 const SweetRanking:React.FC = () => {
   const filePaths = ['/image/jagariko.png', '/image/poteti.png', '/image/umaibou.png'];
 
-  const cards = filePaths.map((filePath) => {
+  const cards = filePaths.map((filePath, index) => {
     return (
-      <>
-        <Grid item xs={4}>
-          <SweetCard
-            filePath={filePath}
-          />
-        </Grid>
-      </>
+      <Grid item xs={4} key={filePath}>
+        <SweetCard
+          filePath={filePath}
+        />
+      </Grid>
     );
   });
 
