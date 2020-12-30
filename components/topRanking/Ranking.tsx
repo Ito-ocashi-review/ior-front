@@ -22,7 +22,11 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Ranking:React.FC = ({ number }) => {
+type props = {
+  number: number,
+}
+
+const Ranking:React.FC<props> = ({ number }) => {
   const classes = useStyles();
 
   const rankingDisplay = (num) => {
