@@ -27,12 +27,15 @@ const useStyles = makeStyles(theme => ({
   top: {
     color: '#270000',
     height: '100vh',
-    margin: '50px',
     textAlign: 'center',
+  },
+  section: {
+    margin: '80px 50px',
   },
   title: {
     fontSize: '100px',
     font: 'MotoyalMaru',
+    // 後で短いボーダーを実装する
     // position: 'relative',
     // display: 'inline-block',
     // marginBottom: '1em',
@@ -76,17 +79,21 @@ const Index: React.FC = () => {
 
   return (
     <div className={classes.top}>
-      <span className={classes.title}>お菓子ランキングトップ３</span>
-      <div className={classes.sweetRanking}>
-        <Grid container spacing={3}>
-          <SweetRanking />
-        </Grid>
+      <div className={classes.section}>
+        <span className={classes.title}>お菓子ランキングトップ３</span>
+        <div className={classes.sweetRanking}>
+          <Grid container spacing={3}>
+            <SweetRanking />
+          </Grid>
+        </div>
       </div>
-      <span className={classes.title}>総合ランキング</span>
-      <div className={classes.totalRanking}>
-        <Grid container spacing={10}>
-          <TotalRanking />
-        </Grid>
+      <div className={classes.section}>
+        <span className={classes.title}>総合ランキング</span>
+        <div className={classes.totalRanking}>
+          <Grid container spacing={8}>
+            <TotalRanking />
+          </Grid>
+        </div>
       </div>
       {session && (
         <Button
