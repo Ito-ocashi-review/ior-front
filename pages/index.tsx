@@ -1,31 +1,14 @@
 import React from 'react';
 import {
-  Button, Card, CardContent, CardHeader, CardMedia, Container, Grid, Paper, Typography,
+  Button, Grid,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import withReactContent from 'sweetalert2-react-content';
 import Swal from 'sweetalert2';
 import { useSession } from 'next-auth/client';
 import Router from 'next/router';
-import { Rating } from '@material-ui/lab';
 import OAuthButton from '../components/OAuthButton';
-
-const sweetReviews = [...Array(3)].map((value, i) => {
-  return (
-  // 後でkeyの名前はお菓子の名前にする。
-  // eslint-disable-next-line react/no-array-index-key
-    <div key={i}>
-      <div>
-        <div className="sweet-item">
-          <span>ブラックサンダ</span>
-          <div className="sweet-review">
-            まあまあうまい
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-});
+import SweetRanking from '../components/topRanking/SweetRanking';
 
 const MySwal = withReactContent(Swal);
 
@@ -61,22 +44,6 @@ const useStyles = makeStyles(theme => ({
       transition: 'all 0.2s linear',
     },
   },
-  cardContent: {
-    color: 'white',
-    backgroundColor: '#270000',
-  },
-  cardHeader: {
-    textAlign: 'left',
-  },
-  cardRating: {
-    textAlign: 'right',
-  },
-  cardButton: {
-    color: '#FFAA01',
-    margin: '15px 0',
-    border: '1px solid #FFAA01',
-    borderRadius: '18px',
-  },
 }));
 
 const Index: React.FC = () => {
@@ -84,48 +51,13 @@ const Index: React.FC = () => {
 
   const classes = useStyles();
 
-  const filePaths = ['/image/jagariko.png', '/image/poteti.png', '/image/umaibou.png'];
-
-  const cards = filePaths.map((filePath) => {
-    return (
-      <>
-        <Grid item xs={4}>
-          <Card>
-            <CardHeader
-              title="じゃがりこ"
-              className={`${classes.cardContent} ${classes.cardHeader}`}
-            />
-            <CardContent className={`${classes.cardContent} ${classes.cardRating}`}>
-              <Rating
-                value={3.5}
-              />
-            </CardContent>
-            <CardMedia
-              component="img"
-              src={filePath}
-            />
-            <CardContent className={`${classes.cardContent} ${classes.cardRating}`}>
-              <Typography>
-                This impressive paella is a perfect party dish and a fun meal to cook together with your
-                guests. Add 1 cup of frozen peas along with the mussels, if you like.
-              </Typography>
-              <Button className={classes.cardButton}>
-                + もっと見る
-              </Button>
-            </CardContent>
-          </Card>
-        </Grid>
-      </>
-    );
-  });
-
   return (
     <div className={classes.top}>
       <div>
         <span className={classes.title}>お菓子ランキングトップ３</span>
       </div>
       <Grid container spacing={9}>
-        {cards}
+        <SweetRanking />
       </Grid>
       {session && (
         <Button
