@@ -17,6 +17,8 @@ const theme = createMuiTheme({
       default: '#FFAA01',
     },
   },
+  // spacingをカスタム
+  spacing: 32,
 });
 
 export default theme;

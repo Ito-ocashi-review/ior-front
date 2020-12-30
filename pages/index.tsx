@@ -78,7 +78,7 @@ const Index: React.FC = () => {
     <div className={classes.top}>
       <span className={classes.title}>お菓子ランキングトップ３</span>
       <div className={classes.sweetRanking}>
-        <Grid container spacing={9}>
+        <Grid container spacing={3}>
           <SweetRanking />
         </Grid>
       </div>
