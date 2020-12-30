@@ -32,6 +32,25 @@ const useStyles = makeStyles(theme => ({
   title: {
     fontSize: '100px',
     font: 'MotoyalMaru',
+    // position: 'relative',
+    // display: 'inline-block',
+    // marginBottom: '1em',
+    // '&:before': {
+    //   content: '',
+    //   position: 'absolute',
+    //   left: '50%',
+    //   bottom: '-15px',
+    //   display: 'inline-block',
+    //   width: '60px',
+    //   height: '5px',
+    //   webkitTransform: 'translateX(-50%)',
+    //   transform: 'translateX(-50%)',
+    //   backgroundColor: 'black',
+    //   borderRadius: '2px',
+    // },
+  },
+  sweetRanking: {
+    margin: '30px 0 30px 0',
   },
   reviewButton: {
     color: 'black',
@@ -53,12 +72,13 @@ const Index: React.FC = () => {
 
   return (
     <div className={classes.top}>
-      <div>
-        <span className={classes.title}>お菓子ランキングトップ３</span>
+      <span className={classes.title}>お菓子ランキングトップ３</span>
+      <div className={classes.sweetRanking}>
+        <Grid container spacing={9}>
+          <SweetRanking />
+        </Grid>
       </div>
-      <Grid container spacing={9}>
-        <SweetRanking />
-      </Grid>
+      <span className={classes.title}>総合ランキング</span>
       {session && (
         <Button
           variant="outlined"
