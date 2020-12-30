@@ -26,7 +26,7 @@ type props = {
   number: number,
 }
 
-const Ranking:React.FC<props> = ({ number }) => {
+const TopRanking:React.FC<props> = ({ number }) => {
   const classes = useStyles();
 
   const rankingDisplay = (num) => {
@@ -48,4 +48,4 @@ const Ranking:React.FC<props> = ({ number }) => {
   );
 };
 
-export default Ranking;
+export default TopRanking;

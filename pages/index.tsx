@@ -9,6 +9,7 @@ import { useSession } from 'next-auth/client';
 import Router from 'next/router';
 import OAuthButton from '../components/OAuthButton';
 import SweetRanking from '../components/topRanking/SweetRanking';
+import TotalRanking from '../components/totalRanking/TotalRanking';
 
 const MySwal = withReactContent(Swal);
 
@@ -50,7 +51,7 @@ const useStyles = makeStyles(theme => ({
     // },
   },
   sweetRanking: {
-    margin: '30px 0 30px 0',
+    margin: '30px 0',
   },
   reviewButton: {
     color: 'black',
@@ -62,6 +63,9 @@ const useStyles = makeStyles(theme => ({
       borderRadius: '30px',
       transition: 'all 0.2s linear',
     },
+  },
+  totalRanking: {
+    margin: '30px 0',
   },
 }));
 
@@ -79,6 +83,11 @@ const Index: React.FC = () => {
         </Grid>
       </div>
       <span className={classes.title}>総合ランキング</span>
+      <div className={classes.totalRanking}>
+        <Grid container spacing={10}>
+          <TotalRanking />
+        </Grid>
+      </div>
       {session && (
         <Button
           variant="outlined"
