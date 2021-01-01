@@ -30,12 +30,7 @@ const NewReview: React.FC = () => {
     fetchSweets();
   }, []);
 
-  if (!session) {
-    Router.push('/');
-  }
-
   const onSubmit = async(data) => {
-    console.log(session.user);
     try {
       await postReview(data, session);
       Router.push('/');
