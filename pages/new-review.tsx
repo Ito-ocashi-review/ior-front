@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
-import { useSession } from 'next-auth/client';
+import { useSession, getSession } from 'next-auth/client';
 import Button from '@material-ui/core/Button';
 import logger from 'react-logger';
 import { Container } from '@material-ui/core';
@@ -30,7 +30,12 @@ const NewReview: React.FC = () => {
     fetchSweets();
   }, []);
 
+  if (!session) {
+    Router.push('/');
+  }
+
   const onSubmit = async(data) => {
+    console.log(session.user);
     try {
       await postReview(data, session);
       Router.push('/');
@@ -63,5 +68,19 @@ const NewReview: React.FC = () => {
     </Container>
   );
 };
+
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+
+  if (!session) {
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: {},
+  };
+}
 
 export default NewReview;
