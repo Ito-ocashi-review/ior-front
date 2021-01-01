@@ -36,6 +36,10 @@ const MenuAppBar:React.FC = () => {
     });
   };
 
+  const handleSignOut = () => {
+    signOut({ callbackUrl: 'http://localhost:3000' });
+  };
+
   const classes = useStyles();
 
   return (
@@ -51,7 +55,7 @@ const MenuAppBar:React.FC = () => {
         )}
         {session && (
           <>
-            <Button onClick={signOut}>
+            <Button onClick={handleSignOut}>
               ログアウト
             </Button>
             <Button
