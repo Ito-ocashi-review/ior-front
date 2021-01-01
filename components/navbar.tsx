@@ -37,7 +37,7 @@ const MenuAppBar:React.FC = () => {
   };
 
   const handleSignOut = () => {
-    signOut({ callbackUrl: 'http://localhost:3000' });
+    signOut({ callbackUrl: process.env.API_SERVER_URL });
   };
 
   const classes = useStyles();
