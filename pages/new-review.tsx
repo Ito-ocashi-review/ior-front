@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import logger from 'react-logger';
 import { Container } from '@material-ui/core';
 import Router from 'next/router';
+import { GetServerSideProps } from 'next';
 import SweetsDropDown from '../components/forms/SweetsDropDown';
 import ReviewText from '../components/forms/ReviewText';
 import EvaluationForm from '../components/forms/EvaluetionForm';
@@ -64,7 +65,7 @@ const NewReview: React.FC = () => {
   );
 };
 
-export async function getServerSideProps(context) {
+export const getServerSideProps:GetServerSideProps = async(context) => {
   const session = await getSession(context);
 
   if (!session) {
@@ -76,6 +77,6 @@ export async function getServerSideProps(context) {
   return {
     props: {},
   };
-}
+};
 
 export default NewReview;
