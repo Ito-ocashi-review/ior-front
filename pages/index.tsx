@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Button, Grid,
+  Button, Container, Grid,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import withReactContent from 'sweetalert2-react-content';
@@ -62,24 +62,25 @@ const Index: React.FC = () => {
   const classes = useStyles();
 
   return (
-    <div className={classes.top}>
-      <div className={classes.section}>
-        <span className={`${classes.title} title`}>お菓子ランキングトップ３</span>
-        <div className={classes.sweetRanking}>
-          <Grid container spacing={3}>
-            <SweetRanking />
-          </Grid>
+    <Container maxWidth="xl">
+      <div className={classes.top}>
+        <div className={classes.section}>
+          <span className={`${classes.title} title`}>お菓子ランキングトップ３</span>
+          <div className={classes.sweetRanking}>
+            <Grid container spacing={3}>
+              <SweetRanking />
+            </Grid>
+          </div>
         </div>
-      </div>
-      <div className={classes.section}>
-        <span className={`${classes.title} title`}>総合ランキング</span>
-        <div className={classes.totalRanking}>
-          <Grid container spacing={8}>
-            <TotalRanking />
-          </Grid>
+        <div className={classes.section}>
+          <span className={`${classes.title} title`}>総合ランキング</span>
+          <div className={classes.totalRanking}>
+            <Grid container spacing={8}>
+              <TotalRanking />
+            </Grid>
+          </div>
         </div>
-      </div>
-      {session && (
+        {session && (
         <Button
           variant="outlined"
           className={classes.reviewButton}
@@ -88,7 +89,7 @@ const Index: React.FC = () => {
           投稿する
         </Button>
         )}
-      {!session && (
+        {!session && (
         <Button
           variant="outlined"
           className={classes.reviewButton}
@@ -97,7 +98,8 @@ const Index: React.FC = () => {
           投稿するにはログインが必要です
         </Button>
         )}
-    </div>
+      </div>
+    </Container>
   );
 };
 
