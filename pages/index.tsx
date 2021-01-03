@@ -1,28 +1,15 @@
 import React from 'react';
-import { Button, Container } from '@material-ui/core';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import {
+  Button, Grid,
+} from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 import withReactContent from 'sweetalert2-react-content';
 import Swal from 'sweetalert2';
 import { useSession } from 'next-auth/client';
 import Router from 'next/router';
 import OAuthButton from '../components/OAuthButton';
-
-const sweetReviews = [...Array(3)].map((value, i) => {
-  return (
-  // 後でkeyの名前はお菓子の名前にする。
-  // eslint-disable-next-line react/no-array-index-key
-    <div key={i}>
-      <div>
-        <div className="sweet-item">
-          <span>ブラックサンダ</span>
-          <div className="sweet-review">
-            まあまあうまい
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-});
+import SweetRanking from '../components/topRanking/SweetRanking';
+import TotalRanking from '../components/totalRanking/TotalRanking';
 
 const MySwal = withReactContent(Swal);
 
@@ -38,9 +25,36 @@ const handleLogin = () => {
 
 const useStyles = makeStyles(theme => ({
   top: {
-    backgroundColor: '#151515',
-    color: 'white',
+    color: '#270000',
     height: '100vh',
+    textAlign: 'center',
+  },
+  section: {
+    margin: '80px 50px',
+  },
+  title: {
+    fontSize: '100px',
+    font: 'MotoyalMaru',
+    // 後で短いボーダーを実装する
+    // position: 'relative',
+    // display: 'inline-block',
+    // marginBottom: '1em',
+    // '&:before': {
+    //   content: '',
+    //   position: 'absolute',
+    //   left: '50%',
+    //   bottom: '-15px',
+    //   display: 'inline-block',
+    //   width: '60px',
+    //   height: '5px',
+    //   webkitTransform: 'translateX(-50%)',
+    //   transform: 'translateX(-50%)',
+    //   backgroundColor: 'black',
+    //   borderRadius: '2px',
+    // },
+  },
+  sweetRanking: {
+    margin: '30px 0',
   },
   reviewButton: {
     color: 'black',
@@ -53,6 +67,9 @@ const useStyles = makeStyles(theme => ({
       transition: 'all 0.2s linear',
     },
   },
+  totalRanking: {
+    margin: '30px 0',
+  },
 }));
 
 const Index: React.FC = () => {
@@ -62,21 +79,23 @@ const Index: React.FC = () => {
 
   return (
     <div className={classes.top}>
-      <Container maxWidth="md">
-        <span>{sweetReviews}</span>
-        <div>
-          <div>
-            <h3>
-              お菓子レポーターランキング
-            </h3>
-          </div>
+      <div className={classes.section}>
+        <span className={classes.title}>お菓子ランキングトップ３</span>
+        <div className={classes.sweetRanking}>
+          <Grid container spacing={3}>
+            <SweetRanking />
+          </Grid>
         </div>
-        <div>
-          <h3>
-            お菓子ランキング
-          </h3>
+      </div>
+      <div className={classes.section}>
+        <span className={classes.title}>総合ランキング</span>
+        <div className={classes.totalRanking}>
+          <Grid container spacing={8}>
+            <TotalRanking />
+          </Grid>
         </div>
-        {session && (
+      </div>
+      {session && (
         <Button
           variant="outlined"
           className={classes.reviewButton}
@@ -85,7 +104,7 @@ const Index: React.FC = () => {
           投稿する
         </Button>
         )}
-        {!session && (
+      {!session && (
         <Button
           variant="outlined"
           className={classes.reviewButton}
@@ -94,8 +113,6 @@ const Index: React.FC = () => {
           投稿するにはログインが必要です
         </Button>
         )}
-
-      </Container>
     </div>
   );
 };
