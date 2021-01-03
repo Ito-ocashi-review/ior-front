@@ -3,7 +3,7 @@ import { Select, InputLabel, MenuItem } from '@material-ui/core';
 import { useFormContext, Controller } from 'react-hook-form';
 
 type Props = {
-  sweets: {name: string, id: number}[]
+  sweets: {id:number, name:string, createdAt:Date}[]
 }
 
 const SweetsDropDown: React.FC<Props> = React.memo(({ sweets }) => {

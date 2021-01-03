@@ -6,30 +6,20 @@ import logger from 'react-logger';
 import { Container } from '@material-ui/core';
 import Router from 'next/router';
 import { GetServerSideProps } from 'next';
+import Axios from 'axios';
 import SweetsDropDown from '../components/forms/SweetsDropDown';
 import ReviewText from '../components/forms/ReviewText';
 import EvaluationForm from '../components/forms/EvaluetionForm';
 import { postReview } from '../repository/api/reviewRepository';
-import { getSweet } from '../repository/api/sweetsRepository';
 
-const NewReview: React.FC = () => {
+type Props = {
+  sweets: {id:number, name:string, createdAt:Date}[]
+}
+
+const NewReview: React.FC<Props> = ({ sweets }) => {
   const methods = useForm();
-
-  const [sweets, setSweets] = useState([]);
+  // const [sweets, setSweets] = useState([]);
   const [session, loading] = useSession();
-
-  useEffect(() => {
-    const fetchSweets = async(): Promise<void> => {
-      try {
-        const sweets = await getSweet();
-        setSweets(sweets.data);
-      }
-      catch (error) {
-        logger.error(error);
-      }
-    };
-    fetchSweets();
-  }, []);
 
   const onSubmit = async(data) => {
     try {
@@ -67,7 +57,8 @@ const NewReview: React.FC = () => {
 
 export const getServerSideProps:GetServerSideProps = async(context) => {
   const session = await getSession(context);
-
+  // プラウザ経由でなくサーバーサイドからapiを呼ぶ時はエンドポイントを変える
+  const sweets = await Axios.get('http://ior_back:8000/api/sweets');
   if (!session) {
     return {
       notFound: true,
@@ -75,7 +66,7 @@ export const getServerSideProps:GetServerSideProps = async(context) => {
   }
 
   return {
-    props: {},
+    props: { sweets: sweets.data },
   };
 };
 
