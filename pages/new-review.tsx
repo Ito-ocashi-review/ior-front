@@ -18,7 +18,6 @@ type Props = {
 
 const NewReview: React.FC<Props> = ({ sweets }) => {
   const methods = useForm();
-  // const [sweets, setSweets] = useState([]);
   const [session, loading] = useSession();
 
   const onSubmit = async(data) => {
