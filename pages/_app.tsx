@@ -5,6 +5,7 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import theme from '../src/theme';
 import NavBar from '../components/navbar';
+import '../styles/global.scss';
 
 const MyApp = (props: AppProps):ReactElement => {
   const { Component, pageProps } = props;

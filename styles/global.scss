@@ -1,0 +1,18 @@
+.title {
+  display: inline-block;
+  position: relative;
+}
+.title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  display: inline-block;
+  width: 200px;
+  height: 3px;
+  -moz-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translate(-50%);
+  background-color: black;
+}
