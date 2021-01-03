@@ -62,25 +62,24 @@ const Index: React.FC = () => {
   const classes = useStyles();
 
   return (
-    <Container maxWidth="xl">
-      <div className={classes.top}>
-        <div className={classes.section}>
-          <span className={`${classes.title} title`}>お菓子ランキングトップ３</span>
-          <div className={classes.sweetRanking}>
-            <Grid container spacing={3}>
-              <SweetRanking />
-            </Grid>
-          </div>
+    <Container className={classes.top} maxWidth="xl">
+      <div className={classes.section}>
+        <span className={`${classes.title} title`}>お菓子ランキングトップ３</span>
+        <div className={classes.sweetRanking}>
+          <Grid container spacing={3}>
+            <SweetRanking />
+          </Grid>
         </div>
-        <div className={classes.section}>
-          <span className={`${classes.title} title`}>総合ランキング</span>
-          <div className={classes.totalRanking}>
-            <Grid container spacing={8}>
-              <TotalRanking />
-            </Grid>
-          </div>
+      </div>
+      <div className={classes.section}>
+        <span className={`${classes.title} title`}>総合ランキング</span>
+        <div className={classes.totalRanking}>
+          <Grid container spacing={8}>
+            <TotalRanking />
+          </Grid>
         </div>
-        {session && (
+      </div>
+      {session && (
         <Button
           variant="outlined"
           className={classes.reviewButton}
@@ -89,7 +88,7 @@ const Index: React.FC = () => {
           投稿する
         </Button>
         )}
-        {!session && (
+      {!session && (
         <Button
           variant="outlined"
           className={classes.reviewButton}
@@ -98,7 +97,6 @@ const Index: React.FC = () => {
           投稿するにはログインが必要です
         </Button>
         )}
-      </div>
     </Container>
   );
 };
