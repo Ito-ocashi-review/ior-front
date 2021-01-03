@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
 import { useSession, getSession } from 'next-auth/client';
 import Button from '@material-ui/core/Button';
