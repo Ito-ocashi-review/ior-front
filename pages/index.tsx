@@ -35,23 +35,6 @@ const useStyles = makeStyles(theme => ({
   title: {
     fontSize: '100px',
     font: 'MotoyalMaru',
-    // 後で短いボーダーを実装する
-    // position: 'relative',
-    // display: 'inline-block',
-    // marginBottom: '1em',
-    // '&:before': {
-    //   content: '',
-    //   position: 'absolute',
-    //   left: '50%',
-    //   bottom: '-15px',
-    //   display: 'inline-block',
-    //   width: '60px',
-    //   height: '5px',
-    //   webkitTransform: 'translateX(-50%)',
-    //   transform: 'translateX(-50%)',
-    //   backgroundColor: 'black',
-    //   borderRadius: '2px',
-    // },
   },
   sweetRanking: {
     margin: '30px 0',
