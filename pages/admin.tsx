@@ -2,6 +2,7 @@ import React from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
+import { createSweet } from '../repository/api/sweetsRepository';
 
 
 type Inputs = {
@@ -10,10 +11,12 @@ type Inputs = {
 
 const Admin: React.FC = () => {
   const {
-    register, handleSubmit, control, errors,
+    handleSubmit, control,
   } = useForm<Inputs>();
 
-  const onSubmit = data => console.log(data);
+  const onSubmit = (data) => {
+    createSweet(data);
+  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
