@@ -17,9 +17,9 @@ type session = {
   user: user,
 }
 
-export const postReview = (data:data, session:session):void => {
+export const postReview = (data:data, session:session):Promise<any> => {
   axiosInstance.defaults.headers.common.Authorization = session.accessToken;
-  axiosInstance.post('/api/reviews', {
+  return axiosInstance.post('/api/reviews', {
     sweetId: data.sweet,
     star: data.rating,
     comment: data.comment,
