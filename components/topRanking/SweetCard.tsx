@@ -27,25 +27,27 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-type props = {filePath: string}
+type props = {evaluation:string, name:string}
 
-const SweetCard:React.FC<props> = ({ filePath }) => {
+const SweetCard:React.FC<props> = ({ evaluation, name }) => {
   const classes = useStyles();
 
   return (
     <Card>
       <CardHeader
-        title="じゃがりこ"
+        title={name}
         className={`${classes.cardContent} ${classes.cardHeader}`}
       />
       <CardContent className={`${classes.cardContent} ${classes.cardRating}`}>
         <Rating
-          value={3.5}
+          precision={0.1}
+          readOnly
+          value={Number(evaluation)}
         />
       </CardContent>
       <CardMedia
         component="img"
-        src={filePath}
+        src="/image/jagariko.png"
       />
       <CardContent className={`${classes.cardContent} ${classes.cardRating}`}>
         <Typography>

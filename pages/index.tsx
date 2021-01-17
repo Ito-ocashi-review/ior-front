@@ -7,6 +7,8 @@ import withReactContent from 'sweetalert2-react-content';
 import Swal from 'sweetalert2';
 import { useSession } from 'next-auth/client';
 import Router from 'next/router';
+import { GetServerSideProps } from 'next';
+import Axios from 'axios';
 import OAuthButton from '../components/OAuthButton';
 import SweetRanking from '../components/topRanking/SweetRanking';
 import TotalRanking from '../components/totalRanking/TotalRanking';
@@ -55,7 +57,16 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Index: React.FC = () => {
+type data = {
+    name: string,
+    evaluation: number,
+}
+
+type Props ={
+  sweetsData: data[]
+}
+
+const Index: React.FC<Props> = ({ sweetsData }) => {
   const [session, loading] = useSession();
 
   const classes = useStyles();
@@ -66,7 +77,7 @@ const Index: React.FC = () => {
         <span className={classes.title}>お菓子ランキングトップ３</span>
         <div className={classes.sweetRanking}>
           <Grid container spacing={3}>
-            <SweetRanking />
+            <SweetRanking sweetsData={sweetsData} />
           </Grid>
         </div>
       </div>
@@ -98,6 +109,15 @@ const Index: React.FC = () => {
         )}
     </div>
   );
+};
+
+export const getServerSideProps:GetServerSideProps = async(ctx) => {
+  const sweetsData = await Axios.get('http://ior_back:8000/api/ranking');
+  return {
+    props: {
+      sweetsData: sweetsData.data,
+    },
+  };
 };
 
 export default Index;
