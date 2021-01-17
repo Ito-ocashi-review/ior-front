@@ -59,7 +59,7 @@ const useStyles = makeStyles(theme => ({
 
 type data = {
     name: string,
-    evaluation: number,
+    evaluation: string,
 }
 
 type Props ={
