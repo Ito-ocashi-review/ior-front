@@ -4,6 +4,7 @@ import {
 } from '@material-ui/core';
 import { Rating } from '@material-ui/lab';
 import { makeStyles } from '@material-ui/core/styles';
+import Image from 'next/image';
 
 const useStyles = makeStyles(theme => ({
   cards: {
@@ -36,7 +37,7 @@ const SweetCard:React.FC<props> = ({ evaluation, name }) => {
     <Card>
       <CardHeader
         title={name}
-        className={`${classes.cardContent} ${classes.cardHeader}`}
+        className={`${classes.cardContent} $s{classes.cardHeader}`}
       />
       <CardContent className={`${classes.cardContent} ${classes.cardRating}`}>
         <Rating
@@ -45,15 +46,13 @@ const SweetCard:React.FC<props> = ({ evaluation, name }) => {
           value={Number(evaluation)}
         />
       </CardContent>
-      <CardMedia
-        component="img"
-        src="/image/jagariko.png"
+      <Image
+        src="/image/comingsoon.png"
+        alt="Picture of the sweet"
+        width={600}
+        height={300}
       />
       <CardContent className={`${classes.cardContent} ${classes.cardRating}`}>
-        <Typography>
-          This impressive paella is a perfect party dish and a fun meal to cook together with your
-          guests. Add 1 cup of frozen peas along with the mussels, if you like.
-        </Typography>
         <Button className={classes.cardButton}>
           + もっと見る
         </Button>
