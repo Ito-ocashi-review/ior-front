@@ -20,5 +20,4 @@ const options = {
   sessionUpdateAge: 24 * 60 * 60 * 1000, // Update session expiry only if session was updated more recently than the last 24 hours
 };
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-export default (req: any, res: any) => NextAuth(req, res, options);
+export default (req: NextApiRequest, res: NextApiResponse): Promise<void> => NextAuth(req, res, options);
